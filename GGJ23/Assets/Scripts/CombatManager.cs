@@ -16,8 +16,8 @@ public class CombatManager : MonoBehaviour
 
     public void StartBattle()
     {
-        _monsterArmy = GameManager.Instance.monsterArmy.Reverse();
-        _enemyArmy = GameManager.Instance.enemyArmy.Reverse();
+        _monsterArmy = GameManager.Instance.monsterArmy;
+        _enemyArmy = GameManager.Instance.enemyArmy;
         DisplayInGrid();
         while (_monsterArmy.Count > 0 || _enemyArmy.Count > 0)
         {
@@ -41,7 +41,7 @@ public class CombatManager : MonoBehaviour
         {
             for (int j = 0; j < gridHeight; i++)
             {
-                //meter os inimigos em grid
+                //meter os inimigos em grid, em ordem inversa
             }
         }
     }
@@ -66,8 +66,8 @@ public class CombatManager : MonoBehaviour
 
         int excessDamage = ApplyDamage(_monsterArmy, enemyArmyStrenght);
         ApplyDamage(_enemyArmy, monsterArmyStrenght);
-        
-        GameManager.Instance.HurtTree(excessDamage)
+
+        GameManager.Instance.HurtTree(excessDamage);
     }
 
     private int ApplyDamage(List<Monster> army, int damage)

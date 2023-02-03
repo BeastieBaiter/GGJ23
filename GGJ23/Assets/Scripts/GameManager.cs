@@ -19,11 +19,28 @@ public class GameManager : MonoBehaviour
     }
 
     private int waveCounter;
-    public List<Monster> monsterList { public get; private set;}
-    public List<Monster> enemiesList { public get; private set;}
+    int treeHealth { public get; private set;}
+    
+    public List<Monster> monsterArmy { public get; private set;}
+    public List<Monster> enemyArmy { public get; private set;}
 
     private void Start()
     {
         waveCounter = 0;
+    }
+
+    public void HurtTree(int damage)
+    {
+        
+    }
+
+    public void BattleOver()
+    {
+        
+    }
+    
+    public void GameOver()
+    {
+        
     }
 }
