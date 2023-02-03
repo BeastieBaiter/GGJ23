@@ -1,22 +1,36 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class CombatManager : MonoBehaviour
 {
-    public int gridWidth;
-    public int gridHeight;
 
+    public float armySize;
+    public Transform enemyArmyPos;
+    public Transform monsterArmyPos;
+
+    public GameObject testPrefab;
+    
     public float minMultiplier;
     public float maxMultiplier;
 
     private List<Monster> _monsterArmy;
     private List<Monster> _enemyArmy;
 
+    private void Start()
+    {
+        DisplayInGridTest();
+    }
+
     public void StartBattle()
     {
         _monsterArmy = GameManager.Instance.monsterArmy;
         _enemyArmy = GameManager.Instance.enemyArmy;
-        DisplayInGrid();
+        int enemyArmySide = Mathf.CeilToInt(Mathf.Sqrt(_enemyArmy.Count));
+        int monsterArmySide = Mathf.CeilToInt(Mathf.Sqrt(_monsterArmy.Count));
+
+        DisplayInGrid(enemyArmySide, monsterArmySide);
         while (_monsterArmy.Count > 0 || _enemyArmy.Count > 0)
         {
             Attack();
@@ -33,14 +47,54 @@ public class CombatManager : MonoBehaviour
         }
     }
 
-    private void DisplayInGrid()
+    private void DisplayInGrid(int enemyArmySide, int monsterArmySide)
     {
-        for (int i = 0; i < gridWidth; i++)
+        List<Monster> reverseArmy = _enemyArmy;
+        reverseArmy.Reverse();
+        float xSpace = armySize - (enemyArmySide * reverseArmy[0].transform.localScale.x);
+        float ySpace = armySize - (enemyArmySide * reverseArmy[0].transform.localScale.y);
+        for (int i = 0; i < enemyArmySide * enemyArmySide; i++)
         {
-            for (int j = 0; j < gridHeight; i++)
-            {
-                //meter os inimigos em grid, em ordem inversa
-            }
+            Instantiate(reverseArmy[i].spritePrefab,
+                enemyArmyPos.position + new Vector3(xSpace * (i % enemyArmySide), ySpace * (i / enemyArmySide), 0),
+                Quaternion.identity);
+        }
+        
+        reverseArmy = _monsterArmy;
+        reverseArmy.Reverse();
+        xSpace = armySize - (monsterArmySide * reverseArmy[0].transform.localScale.x);
+        ySpace = armySize - (monsterArmySide * reverseArmy[0].transform.localScale.y);
+        for (int i = 0; i < monsterArmySide * monsterArmySide; i++)
+        {
+            Instantiate(reverseArmy[i].spritePrefab,
+                monsterArmyPos.position + new Vector3(xSpace * (i % monsterArmySide), ySpace * (i / monsterArmySide), 0),
+                Quaternion.identity);
+        }
+    }
+    
+    private void DisplayInGridTest()
+    {
+        int enemyArmySide = 10;
+        float xSpace = (armySize - (enemyArmySide * testPrefab.transform.localScale.x))/enemyArmySide;
+        float ySpace = (armySize - (enemyArmySide * testPrefab.transform.localScale.y))/enemyArmySide;
+        Debug.Log(xSpace);
+        Debug.Log(ySpace);
+
+        for (int i = 0; i < enemyArmySide * enemyArmySide; i++)
+        {
+            Instantiate(testPrefab,
+                enemyArmyPos.position + new Vector3(xSpace * (i % enemyArmySide), ySpace * (i / enemyArmySide), 0),
+                Quaternion.identity);
+        }
+        
+        int monsterArmySide = 7;
+        xSpace = (armySize - (monsterArmySide * testPrefab.transform.localScale.x))/monsterArmySide;
+        ySpace = (armySize - (monsterArmySide * testPrefab.transform.localScale.y))/monsterArmySide;
+        for (int i = 0; i < monsterArmySide * monsterArmySide; i++)
+        {
+            Instantiate(testPrefab,
+                monsterArmyPos.position + new Vector3(xSpace * (i % monsterArmySide), ySpace * (i / monsterArmySide), 0),
+                Quaternion.identity);
         }
     }
 

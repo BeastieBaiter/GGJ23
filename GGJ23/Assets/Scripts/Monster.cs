@@ -8,4 +8,6 @@ public class Monster : MonoBehaviour
     public int maxHealth;
     public int damage;
     public int tier;
+
+    public GameObject spritePrefab;
 }
