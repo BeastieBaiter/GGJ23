@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     }
 
     private int waveCounter;
-    public int treeHealth { get; private set;}
+    public int treeHealth;
     
     public List<Monster> monsterArmy { get; private set;}
     public List<Monster> enemyArmy { get; private set;}
@@ -29,7 +29,19 @@ public class GameManager : MonoBehaviour
         waveCounter = 0;
     }
 
+    public void Update()
+    {
+        throw new NotImplementedException();
+    }
+    
+    
+
     public void HurtTree(int damage)
+    {
+        
+    }
+
+    public void BattleStart()
     {
         
     }
