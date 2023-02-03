@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
         
     }
 
-    public void BattleOver()
+    public void BattleOver(List<Monster> newMonsterArmy)
     {
         
     }
