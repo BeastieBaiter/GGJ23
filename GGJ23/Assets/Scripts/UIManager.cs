@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,6 +20,16 @@ public class UIManager : MonoBehaviour
     }
 
     [SerializeField] public TMP_Text timerText;
+
+    public void Start()
+    {
+        
+    }
+
+    public void UpdateHealthBar()
+    {
+        
+    }
 
     public void UpdateTimerText(string text)
     {

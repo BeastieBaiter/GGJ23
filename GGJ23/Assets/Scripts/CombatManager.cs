@@ -36,7 +36,7 @@ public class CombatManager : MonoBehaviour
             Attack();
         }
 
-        if (_monsterArmy.Count == 0 && GameManager.Instance.treeHealth <= 0)
+        if (_monsterArmy.Count == 0 && GameManager.Instance.currTreeHealth <= 0)
         {
             GameManager.Instance.GameOver();
         }

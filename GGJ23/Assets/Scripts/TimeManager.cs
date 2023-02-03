@@ -32,6 +32,7 @@ public class TimeManager : MonoBehaviour
         TimerRunning = true;
         _gameManager = GameManager.Instance;
         _audioManager = AudioManager.Instance;
+        _uiManager = UIManager.Instance;
     }
 
     // Update is called once per frame
@@ -41,7 +42,7 @@ public class TimeManager : MonoBehaviour
         {
             if (_timeRemaining > 0)
             {
-                
+                _uiManager.UpdateTimerText(DisplayTime());
                 _timeRemaining -= Time.deltaTime;
             }
             else

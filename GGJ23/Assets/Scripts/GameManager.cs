@@ -19,21 +19,36 @@ public class GameManager : MonoBehaviour
     }
 
     private int waveCounter;
-    public int treeHealth { get; private set;}
+    [HideInInspector] public int currTreeHealth;
+    public int maxTreeHealth;
     
     public List<Monster> monsterArmy { get; private set;}
     public List<Monster> enemyArmy { get; private set;}
+    public Grid grid { get; private set;}
 
     private void Start()
     {
         waveCounter = 0;
+        currTreeHealth = maxTreeHealth;
     }
+
+    public void Update()
+    {
+        
+    }
+    
+    
 
     public void HurtTree(int damage)
     {
         
     }
 
+    public void BattleStart()
+    {
+        
+    }
+    
     public void BattleOver(List<Monster> newMonsterArmy)
     {
         
