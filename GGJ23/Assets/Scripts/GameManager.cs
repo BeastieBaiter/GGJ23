@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     
     public List<Monster> monsterArmy { get; private set;}
     public List<Monster> enemyArmy { get; private set;}
+    public Grid grid { get; private set;}
 
     private void Start()
     {
