@@ -1,6 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Build.Content;
 using UnityEngine;
 
 public class CombatManager : MonoBehaviour
@@ -31,7 +29,7 @@ public class CombatManager : MonoBehaviour
 
         if (_enemyArmy.Count > 0)
         {
-            GameManager.Instance.BattleOver();
+            GameManager.Instance.BattleOver(_monsterArmy);
         }
     }
 
@@ -64,8 +62,8 @@ public class CombatManager : MonoBehaviour
         int monsterAttackDamage = Mathf.RoundToInt(monsterArmyStrenght * Random.Range(minMultiplier, maxMultiplier));
         int enemyArmyDamage = Mathf.RoundToInt(enemyArmyStrenght * Random.Range(minMultiplier, maxMultiplier));
 
-        int excessDamage = ApplyDamage(_monsterArmy, enemyArmyStrenght);
-        ApplyDamage(_enemyArmy, monsterArmyStrenght);
+        int excessDamage = ApplyDamage(_monsterArmy, enemyArmyDamage);
+        ApplyDamage(_enemyArmy, monsterAttackDamage);
 
         GameManager.Instance.HurtTree(excessDamage);
     }
