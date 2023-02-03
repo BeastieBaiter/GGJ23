@@ -578,6 +578,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de970bea7da60764b8440f32b7eafdc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currTreeHealth: 0
+  maxTreeHealth: 100
 --- !u!1 &1754828751
 GameObject:
   m_ObjectHideFlags: 0

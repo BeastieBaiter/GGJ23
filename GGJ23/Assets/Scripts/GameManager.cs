@@ -19,7 +19,8 @@ public class GameManager : MonoBehaviour
     }
 
     private int waveCounter;
-    public int treeHealth;
+    [HideInInspector] public int currTreeHealth;
+    public int maxTreeHealth;
     
     public List<Monster> monsterArmy { get; private set;}
     public List<Monster> enemyArmy { get; private set;}
@@ -28,11 +29,12 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         waveCounter = 0;
+        currTreeHealth = maxTreeHealth;
     }
 
     public void Update()
     {
-        throw new NotImplementedException();
+        
     }
     
     
