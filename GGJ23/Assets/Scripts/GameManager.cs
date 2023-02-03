@@ -19,10 +19,10 @@ public class GameManager : MonoBehaviour
     }
 
     private int waveCounter;
-    int treeHealth { public get; private set;}
+    public int treeHealth { get; private set;}
     
-    public List<Monster> monsterArmy { public get; private set;}
-    public List<Monster> enemyArmy { public get; private set;}
+    public List<Monster> monsterArmy { get; private set;}
+    public List<Monster> enemyArmy { get; private set;}
 
     private void Start()
     {

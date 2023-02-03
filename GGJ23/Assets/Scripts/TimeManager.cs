@@ -20,8 +20,9 @@ public class TimeManager : MonoBehaviour
     [SerializeField] private float duration  = 100;
     private float _timeRemaining;
     public bool TimerRunning { get; private set; }
-    private GameManager _gm;
-    private AudioManager _am;
+    private GameManager _gameManager;
+    private AudioManager _audioManager;
+    private UIManager _uiManager;
     
     
     // Start is called before the first frame update
@@ -29,8 +30,8 @@ public class TimeManager : MonoBehaviour
     {
         _timeRemaining = duration;
         TimerRunning = true;
-        _gm = GameManager.Instance;
-        _am = AudioManager.Instance;
+        _gameManager = GameManager.Instance;
+        _audioManager = AudioManager.Instance;
     }
 
     // Update is called once per frame
@@ -40,13 +41,14 @@ public class TimeManager : MonoBehaviour
         {
             if (_timeRemaining > 0)
             {
+                
                 _timeRemaining -= Time.deltaTime;
             }
             else
             {
                 _timeRemaining = 0f;
                 TimerRunning = false;
-                _am.Play("Timer Over");
+                //_audioManager.Play("Timer Over");
             }
         }
     }
