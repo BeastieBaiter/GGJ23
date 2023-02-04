@@ -30,8 +30,9 @@ public class CombatManager : MonoBehaviour
         _monsterArmy = WaveManager.Instance.GetNextWave(2);
         _enemyArmy = WaveManager.Instance.GetNextWave(1);
 
+        int counter = 0;
         DisplayInGrid(true);
-        while (true)
+        while (counter < 10)
         {
             if (_monsterArmy.Count <= 0 || _enemyArmy.Count <= 0)
             {
@@ -41,7 +42,7 @@ public class CombatManager : MonoBehaviour
             DisplayInGrid(false);
             Debug.Log("The monster army has " + _monsterArmy.Count + " monsters");
             Debug.Log("The enemy army has " + _enemyArmy.Count + " monsters");
-
+            counter++;
         }
 
         if (GameManager.Instance.currTreeHealth <= 0)
