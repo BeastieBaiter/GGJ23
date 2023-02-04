@@ -65,10 +65,10 @@ public class GameManager : MonoBehaviour
             MakeItRain();
         }
 
-        /*if (!_timeManager.TimerRunning)
+        if (!_timeManager.TimerRunning)
         {
-            _combatManager.StartBattle();
-        }*/
+            BattleStart();
+        }
     }
     /*Grid Builder*/
     void GridBuilder(){

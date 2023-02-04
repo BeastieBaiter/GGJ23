@@ -21,9 +21,11 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] private TMP_Text timerText;
     [SerializeField] private HealthBar healthBar;
+    
+    [Header("End Screen:")]
     [SerializeField] private GameObject endScreenPanel;
     [SerializeField] private TMP_Text endText;
-
+    
     private GameManager _gameManager;
     private AudioManager _audioManager;
 
