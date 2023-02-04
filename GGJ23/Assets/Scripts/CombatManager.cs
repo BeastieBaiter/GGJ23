@@ -48,7 +48,7 @@ public class CombatManager : MonoBehaviour
 
     private List<Monster> _monsterArmy;
     private List<Monster> _enemyArmy;
-
+    
     private void Update()
     {
         if (combatUI.activeSelf)
