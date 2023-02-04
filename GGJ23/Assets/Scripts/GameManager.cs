@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
     private int waveCounter;
     private UIManager _uiManager;
     private AudioManager _audioManager;
+    private TimeManager _timeManager;
+    private CombatManager _combatManager;
     
     [HideInInspector] public int currTreeHealth;
     public int maxTreeHealth;
@@ -52,6 +54,8 @@ public class GameManager : MonoBehaviour
         currTreeHealth = maxTreeHealth;
         _audioManager = AudioManager.Instance;
         _uiManager = UIManager.Instance;
+        _timeManager = TimeManager.Instance;
+        _combatManager = CombatManager.Instance;
     }
 
     public void Update()
@@ -60,6 +64,11 @@ public class GameManager : MonoBehaviour
         {
             MakeItRain();
         }
+
+        /*if (!_timeManager.TimerRunning)
+        {
+            _combatManager.StartBattle();
+        }*/
     }
     /*Grid Builder*/
     void GridBuilder(){
