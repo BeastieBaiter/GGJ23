@@ -1,20 +1,52 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class WaveManager : MonoBehaviour
 {
+    
+    public static WaveManager Instance { get; private set; }
+    private void Awake()
+    {
+        // If there is an instance, and it's not me, delete myself.
+        if (Instance != null && Instance != this) 
+            Destroy(this);
+        else
+        {
+            Instance = this;
+            DontDestroyOnLoad(this);
+        }
+    }
+    
     public int initialArmyStrength;
-    public int linearProgressionMultiplier;
+    public float linearProgressionMultiplier;
 
     public List<Monster> monsters;
+
+    private void Start()
+    {
+        /*List<Monster> enemies = GetNextWave(1);
+        foreach (Monster m in enemies)
+        {
+            Debug.Log(m.tier);
+        }
+
+        Debug.Log(Mathf.RoundToInt(1 * linearProgressionMultiplier * initialArmyStrength));
+        Debug.Log(GetArmyStrength(enemies));*/
+    }
 
     public List<Monster> GetNextWave(int waveNumber)
     {
         List<Monster> enemyArmy = new List<Monster>();
-        int waveStrength = waveNumber * linearProgressionMultiplier * initialArmyStrength;
+        int waveStrength = Mathf.RoundToInt(waveNumber * linearProgressionMultiplier * initialArmyStrength);
         while (GetArmyStrength(enemyArmy) < waveStrength)
         {
             enemyArmy.Add(monsters[Random.Range(0,3)]);
+        }
+
+        foreach (Monster m in enemyArmy)
+        {
+            m.currentHealth = m.maxHealth;
         }
         return enemyArmy;
     }

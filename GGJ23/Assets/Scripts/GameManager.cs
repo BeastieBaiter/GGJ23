@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
 
     public void HurtTree(int damage)
     {
-        
+        Debug.Log("The tree took " + damage + " damage");
     }
 
     public void BattleStart()
@@ -63,11 +63,11 @@ public class GameManager : MonoBehaviour
     
     public void BattleOver(List<Monster> newMonsterArmy)
     {
-        
+        Debug.Log("The battle is over.");
     }
     
     public void GameOver()
     {
-        
+        Debug.Log("The game is over.");
     }
 }

@@ -101,4 +101,4 @@ MonoBehaviour:
   maxHealth: 20
   damage: 10
   tier: 2
-  spritePrefab: {fileID: 0}
+  spritePrefab: {fileID: 438129340133841324, guid: 44490f2d1eeda0f4a86592ad27a47a33, type: 3}

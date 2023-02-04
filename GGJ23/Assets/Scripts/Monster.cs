@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,4 +11,9 @@ public class Monster : MonoBehaviour
     public int tier;
 
     public GameObject spritePrefab;
+
+    public void Start()
+    {
+        currentHealth = maxHealth;
+    }
 }
