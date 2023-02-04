@@ -19,16 +19,23 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    [SerializeField] public TMP_Text timerText;
+    [SerializeField] private TMP_Text timerText;
+    [SerializeField] private HealthBar healthBar;
+
+    private GameManager _gameManager;
+    private AudioManager _audioManager;
 
     public void Start()
     {
-        
+        _gameManager = GameManager.Instance;
+        _audioManager = AudioManager.Instance;
+        healthBar.SetEverything(_gameManager.maxTreeHealth);
     }
 
     public void UpdateHealthBar()
     {
-        
+        healthBar.SetHealth(_gameManager.currTreeHealth);
+        healthBar.SetText();
     }
 
     public void UpdateTimerText(string text)

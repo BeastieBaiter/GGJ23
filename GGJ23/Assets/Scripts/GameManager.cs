@@ -19,9 +19,11 @@ public class GameManager : MonoBehaviour
     }
 
     private int waveCounter;
+    private UIManager _uiManager;
+    private AudioManager _audioManager;
+    
     [HideInInspector] public int currTreeHealth;
     public int maxTreeHealth;
-    
     public List<Monster> monsterArmy { get; private set;}
     public List<Monster> enemyArmy { get; private set;}
     public Grid grid { get; private set;}
@@ -31,6 +33,8 @@ public class GameManager : MonoBehaviour
     {
         waveCounter = 0;
         currTreeHealth = maxTreeHealth;
+        _audioManager = AudioManager.Instance;
+        _uiManager = UIManager.Instance;
     }
 
     public void Update()
@@ -46,8 +50,6 @@ public class GameManager : MonoBehaviour
             dirt.GetComponent<WaterLevel>().UpdateWaterLevel();
         }
     }
-    
-    
 
     public void HurtTree(int damage)
     {

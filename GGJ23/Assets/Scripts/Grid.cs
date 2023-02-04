@@ -15,10 +15,20 @@ public class Grid : MonoBehaviour
     // List of dirt objects
     public List<GameObject> dirts = new List<GameObject>();
 
+    // Array of Upgrade objects to spawn
+    public GameObject[] upgrades = new GameObject[3];
+    // Array of Vector2 to spawn upgrades
+    Vector2[] upgradeSpawnPos = new Vector2[3];
+
     void Start()
     {
         parent = new GameObject("Parent");
         parent.transform.position = new Vector2(gridStartPos.x, gridStartPos.y);
+        for (int i = 0; i < upgrades.Length; i++){
+            int randX = Random.Range(0, gridWidth);
+            int randY = Random.Range(0, gridHeight);
+            upgradeSpawnPos[i] = new Vector2(randX, randY);
+        }
         Func_Grid();
     }
     void Func_Grid(){
@@ -26,7 +36,11 @@ public class Grid : MonoBehaviour
         {
             for (int y = 0; y < gridHeight; y++)
             {
-                SpawnDirt(x,y);
+                double pos = VerifyUpgradePos(upgradeSpawnPos, x, y);
+                if(pos == -1)
+                    SpawnDirt(x, y);
+                else 
+                    SpawnUpgrade(x, y, int.Parse(pos.ToString()));
             }
         }
     }
@@ -35,5 +49,17 @@ public class Grid : MonoBehaviour
         dirtClone.name = "Dirt" + x + y;
         dirts.Add(dirtClone);
         dirtClone.transform.parent=parent.transform;
+    }
+    void SpawnUpgrade(int x,int y,int pos){
+        var upgradeClone=Instantiate(upgrades[pos], new Vector2(x,y), Quaternion.identity);
+        upgradeClone.name = "Upgrade" + x + y;
+        upgradeClone.transform.parent=parent.transform;
+    }
+    int VerifyUpgradePos(Vector2[] upgradeSpawnPos , int x, int y){
+        for (int i = 0; i < upgradeSpawnPos.Length; i++){
+            if(upgradeSpawnPos[i].x == x && upgradeSpawnPos[i].y == y)
+                return i;
+        }
+        return -1;
     }
 }
