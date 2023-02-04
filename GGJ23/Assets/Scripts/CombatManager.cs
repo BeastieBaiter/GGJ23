@@ -93,21 +93,21 @@ public class CombatManager : MonoBehaviour
 
     private void Attack()
     {
-        int monsterArmyStrenght = 0;
-        int enemyArmyStrenght = 0;
+        int monsterArmyStrength = 0;
+        int enemyArmyStrength = 0;
 
         foreach (Monster m in _monsterArmy)
         {
-            monsterArmyStrenght += m.damage;
+            monsterArmyStrength += m.damage;
         }
 
         foreach (Monster m in _enemyArmy)
         {
-            enemyArmyStrenght += m.damage;
+            enemyArmyStrength += m.damage;
         }
 
-        int monsterAttackDamage = Mathf.RoundToInt(monsterArmyStrenght * Random.Range(minMultiplier, maxMultiplier));
-        int enemyArmyDamage = Mathf.RoundToInt(enemyArmyStrenght * Random.Range(minMultiplier, maxMultiplier));
+        int monsterAttackDamage = Mathf.RoundToInt(monsterArmyStrength * Random.Range(minMultiplier, maxMultiplier));
+        int enemyArmyDamage = Mathf.RoundToInt(enemyArmyStrength * Random.Range(minMultiplier, maxMultiplier));
 
         int excessDamage = ApplyDamage(_monsterArmy, enemyArmyDamage);
         ApplyDamage(_enemyArmy, monsterAttackDamage);
