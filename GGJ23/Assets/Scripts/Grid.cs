@@ -12,6 +12,8 @@ public class Grid : MonoBehaviour
     public GameObject dirt; 
     //Parent object
     GameObject parent;
+    // List of dirt objects
+    public List<GameObject> dirts = new List<GameObject>();
 
     void Start()
     {
@@ -30,6 +32,8 @@ public class Grid : MonoBehaviour
     }
     void SpawnDirt(int x,int y){
         var dirtClone=Instantiate(dirt, new Vector2(x,y), Quaternion.identity);
+        dirtClone.name = "Dirt" + x + y;
+        dirts.Add(dirtClone);
         dirtClone.transform.parent=parent.transform;
     }
 }
