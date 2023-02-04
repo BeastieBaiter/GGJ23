@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 public class CombatManager : MonoBehaviour
 {
 
-    public float armySize;
+    public float armyGap;
     public Transform enemyArmyPos;
     public Transform monsterArmyPos;
 
@@ -27,13 +27,12 @@ public class CombatManager : MonoBehaviour
     {
         _monsterArmy = GameManager.Instance.monsterArmy;
         _enemyArmy = GameManager.Instance.enemyArmy;
-        int enemyArmySide = Mathf.CeilToInt(Mathf.Sqrt(_enemyArmy.Count));
-        int monsterArmySide = Mathf.CeilToInt(Mathf.Sqrt(_monsterArmy.Count));
 
-        DisplayInGrid(enemyArmySide, monsterArmySide);
+        DisplayInGrid(true);
         while (_monsterArmy.Count > 0 || _enemyArmy.Count > 0)
         {
             Attack();
+            DisplayInGrid(false);
         }
 
         if (_monsterArmy.Count == 0 && GameManager.Instance.currTreeHealth <= 0)
@@ -47,54 +46,48 @@ public class CombatManager : MonoBehaviour
         }
     }
 
-    private void DisplayInGrid(int enemyArmySide, int monsterArmySide)
+    private void DisplayInGrid(bool firstDraw)
     {
+        
+        //A BOOL é para dar beautify se tiver tempo, e basicamente por os sprites a aparecerem 1 a 1 (mas rapidamente) 
+        //com som e tudo
+        
+        //O CODIGO SÓ DÁ RENDER DE 100 SPRITES
+        //SE SOBRAR MAIS DO EXÉRCITO, NÃO SÃO DADOS RENDER, ATÉ AO PRÓXIMO ATAQUE
         List<Monster> reverseArmy = _enemyArmy;
         reverseArmy.Reverse();
-        float xSpace = armySize - (enemyArmySide * reverseArmy[0].transform.localScale.x);
-        float ySpace = armySize - (enemyArmySide * reverseArmy[0].transform.localScale.y);
-        for (int i = 0; i < enemyArmySide * enemyArmySide; i++)
+        for (int i = 0; i < 10 * 10 && (i < reverseArmy.Count); i++)
         {
             Instantiate(reverseArmy[i].spritePrefab,
-                enemyArmyPos.position + new Vector3(xSpace * (i % enemyArmySide), ySpace * (i / enemyArmySide), 0),
-                Quaternion.identity);
+                enemyArmyPos.position + new Vector3(armyGap * (i % 10), armyGap * (i / 10), 0),
+                Quaternion.identity, enemyArmyPos);
         }
         
         reverseArmy = _monsterArmy;
         reverseArmy.Reverse();
-        xSpace = armySize - (monsterArmySide * reverseArmy[0].transform.localScale.x);
-        ySpace = armySize - (monsterArmySide * reverseArmy[0].transform.localScale.y);
-        for (int i = 0; i < monsterArmySide * monsterArmySide; i++)
+        for (int i = 0; i < 10 * 10 && i < reverseArmy.Count; i++)
         {
             Instantiate(reverseArmy[i].spritePrefab,
-                monsterArmyPos.position + new Vector3(xSpace * (i % monsterArmySide), ySpace * (i / monsterArmySide), 0),
-                Quaternion.identity);
+                monsterArmyPos.position + new Vector3(armyGap * (i % 10), armyGap * (i / 10), 0),
+                Quaternion.identity, monsterArmyPos);
         }
     }
     
     private void DisplayInGridTest()
     {
-        int enemyArmySide = 10;
-        float xSpace = (armySize - (enemyArmySide * testPrefab.transform.localScale.x))/enemyArmySide;
-        float ySpace = (armySize - (enemyArmySide * testPrefab.transform.localScale.y))/enemyArmySide;
-        Debug.Log(xSpace);
-        Debug.Log(ySpace);
 
-        for (int i = 0; i < enemyArmySide * enemyArmySide; i++)
+        for (int i = 0; i < 10 * 10; i++)
         {
             Instantiate(testPrefab,
-                enemyArmyPos.position + new Vector3(xSpace * (i % enemyArmySide), ySpace * (i / enemyArmySide), 0),
-                Quaternion.identity);
+                enemyArmyPos.position + new Vector3(armyGap * (i % 10), armyGap * (i / 10), 0),
+                Quaternion.identity, enemyArmyPos);
         }
         
-        int monsterArmySide = 7;
-        xSpace = (armySize - (monsterArmySide * testPrefab.transform.localScale.x))/monsterArmySide;
-        ySpace = (armySize - (monsterArmySide * testPrefab.transform.localScale.y))/monsterArmySide;
-        for (int i = 0; i < monsterArmySide * monsterArmySide; i++)
+        for (int i = 0; i < 10 * 10; i++)
         {
             Instantiate(testPrefab,
-                monsterArmyPos.position + new Vector3(xSpace * (i % monsterArmySide), ySpace * (i / monsterArmySide), 0),
-                Quaternion.identity);
+                monsterArmyPos.position + new Vector3(armyGap * (i % 10), armyGap * (i / 10), 0),
+                Quaternion.identity, monsterArmyPos);
         }
     }
 
