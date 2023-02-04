@@ -16,12 +16,13 @@ public class UIManager : MonoBehaviour
         else
         {
             Instance = this;
-            DontDestroyOnLoad(this);
         }
     }
 
     [SerializeField] private TMP_Text timerText;
     [SerializeField] private HealthBar healthBar;
+    [SerializeField] private GameObject endScreenPanel;
+    [SerializeField] private TMP_Text endText;
 
     private GameManager _gameManager;
     private AudioManager _audioManager;
@@ -53,5 +54,11 @@ public class UIManager : MonoBehaviour
     public void Quit()
     {
         Application.Quit();
+    }
+
+    public void OpenEndScreenPanel(string text)
+    {
+        endScreenPanel.SetActive(true);
+        endText.text = text;
     }
 }
