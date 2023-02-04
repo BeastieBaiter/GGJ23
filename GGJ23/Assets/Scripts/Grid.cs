@@ -22,14 +22,20 @@ public class Grid : MonoBehaviour
 
     void Start()
     {
+        GridBuilder();
+    }
+    void GridBuilder(){
+        Start_Grid();
+        Func_Grid();
+    }
+    void Start_Grid(){
         parent = new GameObject("Parent");
         parent.transform.position = new Vector2(gridStartPos.x, gridStartPos.y);
-        for (int i = 0; i < upgrades.Length; i++){
+        for (int i = 0; i < upgrades.Length+1; i++){
             int randX = Random.Range(0, gridWidth);
             int randY = Random.Range(0, gridHeight);
             upgradeSpawnPos[i] = new Vector2(randX, randY);
         }
-        Func_Grid();
     }
     void Func_Grid(){
         for (int x = 0; x < gridWidth; x++)
