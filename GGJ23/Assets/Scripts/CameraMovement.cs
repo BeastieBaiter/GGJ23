@@ -10,7 +10,7 @@ public class CameraMovement : MonoBehaviour
     
     void Start()
     {
-        _cameraPosition = this.transform.position;
+        _cameraPosition = transform.position;
     }
 
     void Update()

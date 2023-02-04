@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -27,6 +28,7 @@ public class UIManager : MonoBehaviour
 
     public void Start()
     {
+        if (SceneManager.GetActiveScene().name == "MainMenuScene") return;
         _gameManager = GameManager.Instance;
         _audioManager = AudioManager.Instance;
         healthBar.SetEverything(_gameManager.maxTreeHealth);
@@ -41,5 +43,15 @@ public class UIManager : MonoBehaviour
     public void UpdateTimerText(string text)
     {
         timerText.text = text;
+    }
+
+    public void SceneLoader(string name)
+    {
+        SceneManager.LoadScene(name);
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
     }
 }

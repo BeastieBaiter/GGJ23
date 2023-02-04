@@ -1,16 +1,24 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Dirt : MonoBehaviour
 {
     public int waterLevel;
     public Sprite[] spritesWaterLevel = new Sprite[4];
     SpriteRenderer spriteRenderer;
-
-    void FixedUpdate()
+    
+    void Start()
     {
-        if(Input.GetMouseButtonDown(0)){
+        waterLevel = 0;
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+    }
+
+    private void Update()
+    {
+        if(Input.GetButtonDown("Fire1")){
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
             if (hit.collider != null && hit.collider.gameObject.tag == "Dirt")
             {
@@ -21,11 +29,7 @@ public class Dirt : MonoBehaviour
             }
         }
     }
-    void Start()
-    {
-        waterLevel = 0;
-        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-    }
+
     public void UpdateWaterLevel()
     {
         // percentage of possibility of water level increase
