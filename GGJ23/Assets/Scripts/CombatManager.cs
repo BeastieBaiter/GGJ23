@@ -5,6 +5,19 @@ using Random = UnityEngine.Random;
 public class CombatManager : MonoBehaviour
 {
 
+    public static CombatManager Instance { get; private set; }
+    private void Awake()
+    {
+        // If there is an instance, and it's not me, delete myself.
+        if (Instance != null && Instance != this) 
+            Destroy(this);
+        else
+        {
+            Instance = this;
+            DontDestroyOnLoad(this);
+        }
+    }
+    
     public float armyGap;
     public Transform enemyArmyPos;
     public Transform monsterArmyPos;
