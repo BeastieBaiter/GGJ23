@@ -102,6 +102,15 @@ public class CombatManager : MonoBehaviour
         }
         else
         {
+            for (int i = enemyArmyPos.childCount - 1; i >= 0; i--)
+            {
+                Destroy(enemyArmyPos.GetChild(i).gameObject);
+            }
+        
+            for (int i = monsterArmyPos.childCount - 1; i >= 0; i--)
+            {
+                Destroy(monsterArmyPos.GetChild(i).gameObject);
+            }
             combatUI.SetActive(false);
             GameManager.Instance.BattleOver(_monsterArmy);
         } 
