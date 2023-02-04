@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -21,8 +20,6 @@ public class CombatManager : MonoBehaviour
             DontDestroyOnLoad(this);
         }
     }
-
-    
     
     public TMP_Text VStext;
     public TMP_Text enemyStats;
@@ -58,7 +55,6 @@ public class CombatManager : MonoBehaviour
     {
         _timeLeft = Mathf.Clamp(_timeLeft - Time.deltaTime, 0, timeBetweenAttacks);
         timer.fillAmount = _timeLeft / timeBetweenAttacks;
-        //timer.text = _timeLeft.ToString();
     }
 
     public void StartBattle()
