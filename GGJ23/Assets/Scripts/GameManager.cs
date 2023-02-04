@@ -60,6 +60,19 @@ public class GameManager : MonoBehaviour
 
     public void Update()
     {
+        if(Input.GetButtonDown("Fire1")){
+            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+            if (hit.collider != null && hit.collider.gameObject.tag == "Dirt" && hit.collider.gameObject.GetComponent<Dirt>().canBeBroken)
+            {
+                //remove Dirt if clicked
+                //log unity
+                Debug.Log(hit.collider.gameObject.name +"clicked");
+                hit.collider.gameObject.GetComponent<CircleCollider2D>().isTrigger = false;
+                
+                hit.collider.gameObject.tag = "Broken";
+                hit.collider.gameObject.SetActive(false);
+            }
+        }
         if (Input.GetKeyDown(KeyCode.Space))
         {
             MakeItRain();
