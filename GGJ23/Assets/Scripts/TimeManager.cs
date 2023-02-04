@@ -61,6 +61,11 @@ public class TimeManager : MonoBehaviour
         return string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
+    public void StopTime()
+    {
+        TimerRunning = false;
+    }
+
     public void ResetTimer()
     {
         _timeRemaining = duration;

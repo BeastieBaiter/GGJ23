@@ -1158,6 +1158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adb42991bcdbd76409b0251645d934d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  combatUI: {fileID: 1998555754}
   VStext: {fileID: 809515405}
   enemyStats: {fileID: 373317347}
   monsterStats: {fileID: 972996918}
@@ -1473,9 +1474,9 @@ MonoBehaviour:
   initialArmyStrength: 30
   linearProgressionMultiplier: 1
   monsters:
-  - {fileID: 3372134077248922009, guid: eae880101706aa548a8dceda5c895adf, type: 3}
-  - {fileID: 3318831758800282595, guid: 35ed989603ee7ea4d845f4517e567b7c, type: 3}
-  - {fileID: 4358171669275398192, guid: b5eb2adfca5bfd845ab0444647018bed, type: 3}
+  - {fileID: 3372134077248922009, guid: 11255d5fa9f37484b980fa3dece4a687, type: 3}
+  - {fileID: 3318831758800282595, guid: f223886d9e8a58644a0a4df7210b65a4, type: 3}
+  - {fileID: 4358171669275398192, guid: 6f56285c7c073304184f3008a12bedf2, type: 3}
 --- !u!1 &1717907897
 GameObject:
   m_ObjectHideFlags: 0
@@ -1520,8 +1521,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de970bea7da60764b8440f32b7eafdc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  counter: 0
   currTreeHealth: 0
   maxTreeHealth: 100
+  monsterPrefabs:
+  - {fileID: 6985782915602749311, guid: eae880101706aa548a8dceda5c895adf, type: 3}
+  - {fileID: 438129340133841324, guid: 35ed989603ee7ea4d845f4517e567b7c, type: 3}
+  - {fileID: 8203106590882110918, guid: b5eb2adfca5bfd845ab0444647018bed, type: 3}
   gridStartPos: {x: 0, y: 0}
   gridWidth: 0
   gridHeight: 0

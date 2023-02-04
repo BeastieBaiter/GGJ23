@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -20,6 +21,8 @@ public class CombatManager : MonoBehaviour
             DontDestroyOnLoad(this);
         }
     }
+
+    public GameObject combatUI;
     
     public TMP_Text VStext;
     public TMP_Text enemyStats;
@@ -46,23 +49,26 @@ public class CombatManager : MonoBehaviour
     private List<Monster> _monsterArmy;
     private List<Monster> _enemyArmy;
 
-    private void Start()
-    {
-        StartBattle();
-    }
-
     private void Update()
     {
-        _timeLeft = Mathf.Clamp(_timeLeft - Time.deltaTime, 0, timeBetweenAttacks);
-        timer.fillAmount = _timeLeft / timeBetweenAttacks;
+        if (combatUI.activeSelf)
+        {
+            _timeLeft = Mathf.Clamp(_timeLeft - Time.deltaTime, 0, timeBetweenAttacks);
+            timer.fillAmount = _timeLeft / timeBetweenAttacks;
+        }
+        else
+        {
+            _timeLeft = timeBetweenAttacks;
+        }
     }
 
     public void StartBattle()
     {
-        //_monsterArmy = GameManager.Instance.monsterArmy;
-        //_enemyArmy = GameManager.Instance.enemyArmy;
-        _monsterArmy = WaveManager.Instance.GetNextWave(20);
-        _enemyArmy = WaveManager.Instance.GetNextWave(15);
+        combatUI.SetActive(true);
+        _monsterArmy = GameManager.Instance.monsterArmy;
+        _enemyArmy = GameManager.Instance.enemyArmy;
+        //_monsterArmy = WaveManager.Instance.GetNextWave(20);
+        //_enemyArmy = WaveManager.Instance.GetNextWave(15);
         _timeLeft = timeBetweenAttacks;
         StartCoroutine(BattleProcess());
     }
@@ -96,6 +102,7 @@ public class CombatManager : MonoBehaviour
         }
         else
         {
+            combatUI.SetActive(false);
             GameManager.Instance.BattleOver(_monsterArmy);
         } 
     }
@@ -184,7 +191,7 @@ public class CombatManager : MonoBehaviour
             }
         }
 
-        /*if (toDestroy.Count > 0)
+        if (toDestroy.Count > 0)
         {
             foreach (Monster m in toDestroy)
             {
@@ -195,7 +202,7 @@ public class CombatManager : MonoBehaviour
                 }
 
             }
-        }*/
+        }
 
         if (army == _monsterArmy)
         {

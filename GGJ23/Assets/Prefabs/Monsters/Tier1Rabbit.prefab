@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1349630786850087499}
   - component: {fileID: 3372134077248922009}
   m_Layer: 0
-  m_Name: Tier1Monster
+  m_Name: Tier1Rabbit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0ccc508108fa6ed4fa11b4a467d7f609, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1bb69cd91685d9248a58b144052746f3, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -100,5 +100,5 @@ MonoBehaviour:
   currentHealth: 0
   maxHealth: 10
   damage: 5
-  spritePrefab: {fileID: 6985782915602749311, guid: d65581fd039045247933363324063ed1, type: 3}
+  spritePrefab: {fileID: 6985782915602749311, guid: 8c217050a3def3a4d97d3b01c3ad4e99, type: 3}
   teleportPrefab: {fileID: 0}

@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     public int counter=0;
     [HideInInspector] public int currTreeHealth;
     public int maxTreeHealth;
+    public List<GameObject> monsterPrefabs;
     public List<Monster> monsterArmy { get; private set;}
     public List<Monster> enemyArmy { get; private set;}
     
@@ -80,6 +81,16 @@ public class GameManager : MonoBehaviour
                 
                 hit.collider.gameObject.tag = "Broken";
                 hit.collider.gameObject.SetActive(false);
+
+                int waterLevel = hit.collider.gameObject.GetComponent<Dirt>().waterLevel;
+
+                if (waterLevel > 0)
+                {
+                    GameObject m = Instantiate(monsterPrefabs[waterLevel - 1], hit.collider.gameObject.transform.position,
+                        Quaternion.identity);
+                    monsterArmy.Add(m.GetComponent<Monster>());
+                }
+                
             }
         }
         if (Input.GetKeyDown(KeyCode.Space))
@@ -155,12 +166,17 @@ public class GameManager : MonoBehaviour
 
     public void BattleStart()
     {
-        
+        _timeManager.StopTime();
+        //MOVER A CAMARA
+        //dar disable das setas
+        CombatManager.Instance.StartBattle();
     }
     
     public void BattleOver(List<Monster> newMonsterArmy)
     {
-        Debug.Log("The battle is over.");
+        _timeManager.ResetTimer();
+        //pan da camara para baixo
+        //reenable das setas
     }
     
     public void GameOver()
