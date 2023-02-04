@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3238317600733666142}
   - component: {fileID: 2230153181032380725}
   - component: {fileID: 4358171669275398192}
+  - component: {fileID: 5391959112052702153}
   m_Layer: 0
   m_Name: Tier3Monster
   m_TagString: Untagged
@@ -74,15 +75,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1116463333, guid: d5f49c24af06213468be787ed7677991, type: 3}
+  m_Sprite: {fileID: -1973540721, guid: 62b00488c7aa73042a87ee24b877b281, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.16, y: 0.16}
+  m_Size: {x: 0.86538464, y: 2.4230769}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &4358171669275398192
@@ -102,3 +103,23 @@ MonoBehaviour:
   damage: 15
   spritePrefab: {fileID: 8203106590882110918, guid: ef29d8bf08a8e894a9574211ea544c8d, type: 3}
   teleportPrefab: {fileID: 0}
+--- !u!95 &5391959112052702153
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8203106590882110918}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 37cb063859dc32d4c84934d1017731f6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0

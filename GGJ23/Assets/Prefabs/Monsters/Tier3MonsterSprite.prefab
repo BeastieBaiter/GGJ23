@@ -67,7 +67,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1116463333, guid: d5f49c24af06213468be787ed7677991, type: 3}
+  m_Sprite: {fileID: -1973540721, guid: 62b00488c7aa73042a87ee24b877b281, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -90,10 +90,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: 1116463333, guid: d5f49c24af06213468be787ed7677991, type: 3}
-  - {fileID: 1270840764, guid: e2722154914a09b42911827f4b824135, type: 3}
-  - {fileID: -1514511400, guid: 36ea139a3fc1fdc41bf35b50d2817c4c, type: 3}
-  - {fileID: 1270840764, guid: ba8ec8b6bcb1fe14e8c4959241e088e4, type: 3}
+  - {fileID: -1973540721, guid: 62b00488c7aa73042a87ee24b877b281, type: 3}
+  - {fileID: -1262052128, guid: d71d4640a9a1a7b41b2088c16629593a, type: 3}
+  - {fileID: -255227580, guid: f10d5dfe40e7bbb40bee08d48050daa1, type: 3}
+  - {fileID: -174782441, guid: d627e96a45e1c0843880f081b8309743, type: 3}
   spritePerFrame: 6
   loop: 1
   destroyOnEnd: 0
