@@ -40,8 +40,8 @@ public class CombatManager : MonoBehaviour
     {
         //_monsterArmy = GameManager.Instance.monsterArmy;
         //_enemyArmy = GameManager.Instance.enemyArmy;
-        _monsterArmy = WaveManager.Instance.GetNextWave(2);
-        _enemyArmy = WaveManager.Instance.GetNextWave(1);
+        _monsterArmy = WaveManager.Instance.GetNextWave(20);
+        _enemyArmy = WaveManager.Instance.GetNextWave(15);
 
         int counter = 0;
         DisplayInGrid(true);
