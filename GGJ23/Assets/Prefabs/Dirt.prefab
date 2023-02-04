@@ -77,12 +77,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1644770853, guid: 5c37cdaffe50186478550b0f67455127, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6fd67aa823d580345a64c511a101d4cf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.9, y: 0.9}
+  m_Size: {x: 0.91, y: 0.91}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -100,12 +100,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33e1dad11ab37314cb0fba5878382e35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rootSprite: {fileID: 21300000, guid: d529f1637739a564896600f00ac42949, type: 3}
   waterLevel: 0
   spritesWaterLevel:
-  - {fileID: 21300000, guid: dec9a12f0adf9ba43923ec3d6b0a81f7, type: 3}
-  - {fileID: 21300000, guid: e39d2d7bc5fbcd24cba1dbff817e03e7, type: 3}
-  - {fileID: 21300000, guid: a9b06104e5a317c4c8b5db66c6ec2ba4, type: 3}
-  - {fileID: 21300000, guid: a8bebcf66d0969b438a53bd5b00e0312, type: 3}
+  - {fileID: 21300000, guid: 6fd67aa823d580345a64c511a101d4cf, type: 3}
+  - {fileID: 21300000, guid: 3eaeb2bb6f300dd4f834e53fdd19bbb4, type: 3}
+  - {fileID: 21300000, guid: a35392d132fd5c642ad5516da8360d3c, type: 3}
+  - {fileID: 21300000, guid: e1149d102a7b883449d6ec0eed3144a0, type: 3}
   canBeBroken: 0
 --- !u!61 &8951587087610975572
 BoxCollider2D:
@@ -125,7 +126,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 1}
-    newSize: {x: 0.9, y: 0.9}
+    newSize: {x: 0.91, y: 0.91}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0

@@ -72,11 +72,12 @@ public class GameManager : MonoBehaviour
                 hit.collider.gameObject.tag = "Broken";
                 hit.collider.gameObject.SetActive(false);
             }
+
             if (hit.collider != null && hit.collider.gameObject.tag == "Bedrock" && hit.collider.gameObject.GetComponent<Bedrock>().canBeBroken)
             {
                 EndGame();
             }
-            
+
             if (hit.collider != null && hit.collider.gameObject.tag == "Dirt" && hit.collider.gameObject.GetComponent<Dirt>().canBeBroken)
             {
                 //remove Dirt if clicked
@@ -85,7 +86,7 @@ public class GameManager : MonoBehaviour
                 hit.collider.gameObject.GetComponent<CircleCollider2D>().isTrigger = false;
                 
                 hit.collider.gameObject.tag = "Broken";
-                hit.collider.gameObject.SetActive(false);
+                hit.collider.gameObject.GetComponent<Dirt>().ChangeRootSprite();
 
                 int waterLevel = hit.collider.gameObject.GetComponent<Dirt>().waterLevel;
 
@@ -123,9 +124,9 @@ public class GameManager : MonoBehaviour
         }
     }
     void Func_Grid(){
-        for (int x = 0; x < gridWidth; x++)
+        for (var x = gridStartPos.x; x < gridWidth + gridStartPos.x; x++)
         {
-            for (int y = 0; y < gridHeight; y++)
+            for (var y = gridStartPos.y; y > -1 * (Math.Abs(gridStartPos.y) + gridHeight); y--)
             {
                 double pos = VerifyUpgradePos(upgradeSpawnPos, x, y);
                 if(pos == -1)
@@ -143,22 +144,22 @@ public class GameManager : MonoBehaviour
         bedrockClone.name = "Bedrock" + x + y;
         bedrockClone.transform.parent=parent.transform;
     }
-    void SpawnDirt(int x,int y){
+    void SpawnDirt(float x,float y){
         var dirtClone=Instantiate(dirt, new Vector2(x,y), Quaternion.identity);
-        // TO DO: change to the carrot coords
-        if(x==0 && y==0){
+
+        if(x==0.5 && y==-4.5){
             dirtClone.GetComponent<Dirt>().canBeBroken=true;
         }
         dirtClone.name = "Dirt" + x + y;
         dirts.Add(dirtClone.GetComponent<Dirt>());
         dirtClone.transform.parent=parent.transform;
     }
-    void SpawnUpgrade(int x,int y,int pos){
+    void SpawnUpgrade(float x,float y,int pos){
         var upgradeClone=Instantiate(upgrades[pos], new Vector2(x,y), Quaternion.identity);
         upgradeClone.name = "Upgrade" + x + y;
         upgradeClone.transform.parent=parent.transform;
     }
-    int VerifyUpgradePos(Vector2[] upgradeSpawnPos , int x, int y){
+    int VerifyUpgradePos(Vector2[] upgradeSpawnPos , float x, float y){
         for (int i = 0; i < upgradeSpawnPos.Length; i++){
             if(upgradeSpawnPos[i].x == x && upgradeSpawnPos[i].y == y)
                 return i;

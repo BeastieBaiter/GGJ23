@@ -6,6 +6,7 @@ using Random = UnityEngine.Random;
 
 public class Dirt : MonoBehaviour
 {
+    public Sprite rootSprite;
     public int waterLevel;
     public Sprite[] spritesWaterLevel = new Sprite[4];
     public bool canBeBroken=false;
@@ -18,6 +19,11 @@ public class Dirt : MonoBehaviour
         circleCollider2D = gameObject.GetComponent<CircleCollider2D>();
         waterLevel = 0;
     }
+
+    private void Update()
+    {
+    }
+
     private void OnTriggerExit2D(Collider2D other) {
         if (other.gameObject.CompareTag("Broken"))
         {
@@ -38,5 +44,10 @@ public class Dirt : MonoBehaviour
             Debug.Log("Water level increased to " + waterLevel);
             //spriteRenderer.sprite = spritesWaterLevel[waterLevel];
         }
+    }
+
+    public void ChangeRootSprite()
+    {
+        gameObject.GetComponent<SpriteRenderer>().sprite = rootSprite;
     }
 }
