@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3152739915044846286}
   - component: {fileID: 1379533857621174925}
   - component: {fileID: 3318831758800282595}
+  - component: {fileID: 7763667139861986725}
   m_Layer: 0
   m_Name: Tier2Rabbit
   m_TagString: Untagged
@@ -74,8 +75,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1bb69cd91685d9248a58b144052746f3, type: 3}
-  m_Color: {r: 0, g: 0.7144735, b: 1, a: 1}
+  m_Sprite: {fileID: -1365864106, guid: 4bb818dd52265904c85429b7e793e850, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -102,3 +103,23 @@ MonoBehaviour:
   damage: 10
   spritePrefab: {fileID: 438129340133841324, guid: 79b74891b19b74a4ab4321d9b2c7f5ce, type: 3}
   teleportPrefab: {fileID: 0}
+--- !u!95 &7763667139861986725
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 438129340133841324}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c9a4acd1d58a509429b7f493af69fcd3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
