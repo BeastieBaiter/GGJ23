@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
     private int waveCounter;
     private UIManager _uiManager;
     private AudioManager _audioManager;
+    private TimeManager _timeManager;
+    private CombatManager _combatManager;
     
     [HideInInspector] public int currTreeHealth;
     public int maxTreeHealth;
@@ -52,14 +54,34 @@ public class GameManager : MonoBehaviour
         currTreeHealth = maxTreeHealth;
         _audioManager = AudioManager.Instance;
         _uiManager = UIManager.Instance;
+        _timeManager = TimeManager.Instance;
+        _combatManager = CombatManager.Instance;
     }
 
     public void Update()
     {
+        if(Input.GetButtonDown("Fire1")){
+            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+            if (hit.collider != null && hit.collider.gameObject.tag == "Dirt" && hit.collider.gameObject.GetComponent<Dirt>().canBeBroken)
+            {
+                //remove Dirt if clicked
+                //log unity
+                Debug.Log(hit.collider.gameObject.name +"clicked");
+                hit.collider.gameObject.GetComponent<CircleCollider2D>().isTrigger = false;
+                
+                hit.collider.gameObject.tag = "Broken";
+                hit.collider.gameObject.SetActive(false);
+            }
+        }
         if (Input.GetKeyDown(KeyCode.Space))
         {
             MakeItRain();
         }
+
+        /*if (!_timeManager.TimerRunning)
+        {
+            _combatManager.StartBattle();
+        }*/
     }
     /*Grid Builder*/
     void GridBuilder(){
@@ -90,6 +112,9 @@ public class GameManager : MonoBehaviour
     }
     void SpawnDirt(int x,int y){
         var dirtClone=Instantiate(dirt, new Vector2(x,y), Quaternion.identity);
+        if(x==0 && y==0){
+            dirtClone.GetComponent<Dirt>().canBeBroken=true;
+        }
         dirtClone.name = "Dirt" + x + y;
         dirts.Add(dirtClone.GetComponent<Dirt>());
         dirtClone.transform.parent=parent.transform;
