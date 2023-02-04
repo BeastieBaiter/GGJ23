@@ -7,7 +7,20 @@ public class Dirt : MonoBehaviour
     public int waterLevel;
     public Sprite[] spritesWaterLevel = new Sprite[4];
     SpriteRenderer spriteRenderer;
-    
+
+    void FixedUpdate()
+    {
+        if(Input.GetMouseButtonDown(0)){
+            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+            if (hit.collider != null && hit.collider.gameObject.tag == "Dirt")
+            {
+                //remove Dirt if clicked
+                //log unity
+                Debug.Log(hit.collider.gameObject.name +"clicked");
+                hit.collider.gameObject.SetActive(false);
+            }
+        }
+    }
     void Start()
     {
         waterLevel = 0;

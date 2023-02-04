@@ -170,14 +170,14 @@ MonoBehaviour:
   currTreeHealth: 0
   maxTreeHealth: 0
   gridStartPos: {x: 0, y: 0}
-  gridWidth: 0
-  gridHeight: 0
-  dirt: {fileID: 0}
+  gridWidth: 10
+  gridHeight: 50
+  dirt: {fileID: 3008313780465116212, guid: f7b3f292c211cd34db37642be07dc48a, type: 3}
   dirts: []
   upgrades:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 4999965300991081022, guid: b4dddebb19147a1458b508b776f60e8a, type: 3}
+  - {fileID: 4999965300991081022, guid: b4dddebb19147a1458b508b776f60e8a, type: 3}
+  - {fileID: 4999965300991081022, guid: b4dddebb19147a1458b508b776f60e8a, type: 3}
 --- !u!1 &1316510520
 GameObject:
   m_ObjectHideFlags: 0
