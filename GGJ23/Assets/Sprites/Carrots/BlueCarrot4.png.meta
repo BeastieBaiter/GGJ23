@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ba8ec8b6bcb1fe14e8c4959241e088e4
+guid: d627e96a45e1c0843880f081b8309743
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,11 +117,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 68EEED3D-72F7-458A-8345-19FEA780E03E_0
+      name: BlueCarrot4_0
       rect:
         serializedVersion: 2
-        x: 675
-        y: 196
+        x: 9
+        y: 13
         width: 52
         height: 113
       alignment: 0
@@ -131,8 +131,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 98086ed8dd025084d890f625d7984d3e
-      internalID: 1270840764
+      spriteID: dd6b2869841bdbd4d8fe554d767a6f19
+      internalID: -174782441
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      68EEED3D-72F7-458A-8345-19FEA780E03E_0: 1270840764
+      BlueCarrot4_0: -174782441
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

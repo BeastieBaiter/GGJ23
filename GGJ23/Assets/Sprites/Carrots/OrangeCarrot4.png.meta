@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ad1c77938b5e2eb479e8f97eae67dcb8
+guid: f8a70fbeb256a994faf25202384e31b4
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,11 +117,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 976E78E2-B7C7-4CE6-B6FA-423F5AA3AF86_0
+      name: OrangeCarrot4_0
       rect:
         serializedVersion: 2
-        x: 675
-        y: 196
+        x: 10
+        y: 13
         width: 52
         height: 113
       alignment: 0
@@ -131,8 +131,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eaf8b4b90d440cc4597ffd993c979ed7
-      internalID: -304939940
+      spriteID: c3a48206e8d6c0d4194b363ceef4a030
+      internalID: 696632289
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      976E78E2-B7C7-4CE6-B6FA-423F5AA3AF86_0: -304939940
+      OrangeCarrot4_0: 696632289
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

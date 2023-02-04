@@ -60,14 +60,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0ccc508108fa6ed4fa11b4a467d7f609, type: 3}
+  m_Sprite: {fileID: 951423094, guid: 6e32418044b38684987b6ba24267d895, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -90,10 +90,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: -1566982604, guid: 6b2bdb40272b9d84da09dc7df8f50da2, type: 3}
-  - {fileID: -304939940, guid: a705b79cf7eff5445906921ea24d661c, type: 3}
-  - {fileID: -791963759, guid: adfaf4676f770f2418d8c454a176ad00, type: 3}
-  - {fileID: -304939940, guid: ad1c77938b5e2eb479e8f97eae67dcb8, type: 3}
+  - {fileID: 951423094, guid: 6e32418044b38684987b6ba24267d895, type: 3}
+  - {fileID: 884683200, guid: 57d4b6249275c0649b3371f810d2c8dd, type: 3}
+  - {fileID: 80822629, guid: 94353de4db6d06f49a7d5ffc2862cde1, type: 3}
+  - {fileID: 696632289, guid: f8a70fbeb256a994faf25202384e31b4, type: 3}
   spritePerFrame: 6
   loop: 1
   destroyOnEnd: 0

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3152739915044846286}
   - component: {fileID: 1379533857621174925}
   - component: {fileID: 3318831758800282595}
-  - component: {fileID: 3362832398703188105}
+  - component: {fileID: 3659479055941246298}
   m_Layer: 0
   m_Name: Tier2Monster
   m_TagString: Untagged
@@ -75,12 +75,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -950473475, guid: aa1905a272d43a740a7366f013e72a37, type: 3}
+  m_Sprite: {fileID: -1795089707, guid: 1c5221bf031f07741a9bfb8e9b4fc7d5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.16, y: 0.16}
+  m_Size: {x: 0.86538464, y: 2.4230769}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -103,7 +103,7 @@ MonoBehaviour:
   damage: 10
   spritePrefab: {fileID: 438129340133841324, guid: 44490f2d1eeda0f4a86592ad27a47a33, type: 3}
   teleportPrefab: {fileID: 0}
---- !u!95 &3362832398703188105
+--- !u!95 &3659479055941246298
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -113,7 +113,7 @@ Animator:
   m_GameObject: {fileID: 438129340133841324}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 71337353a3ebf2446b5b1aa6b589bc06, type: 2}
+  m_Controller: {fileID: 9100000, guid: 83181e09a24e3c9449f5eb5b9ca2fc0e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
