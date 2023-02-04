@@ -22,6 +22,8 @@ public class CombatManager : MonoBehaviour
         }
     }
 
+    
+    
     public TMP_Text VStext;
     public TMP_Text enemyStats;
     public TMP_Text monsterStats;
@@ -29,8 +31,10 @@ public class CombatManager : MonoBehaviour
     public TMP_Text monsterDamage;
     public TMP_Text enemyCounter;
     public TMP_Text monsterCounter;
-    //public TMP_Text timer;
-    
+    public Image timer;
+
+    public int armyWidth;
+    public int armyHeight;
     public float armyGap;
     public Transform enemyArmyPos;
     public Transform monsterArmyPos;
@@ -52,8 +56,8 @@ public class CombatManager : MonoBehaviour
 
     private void Update()
     {
-        _timeLeft = Mathf.Clamp(_timeLeft - Time.deltaTime, 0, 10f);
-        //timer.fillAmount = _timeLeft / 10f;
+        _timeLeft = Mathf.Clamp(_timeLeft - Time.deltaTime, 0, timeBetweenAttacks);
+        timer.fillAmount = _timeLeft / timeBetweenAttacks;
         //timer.text = _timeLeft.ToString();
     }
 
@@ -134,7 +138,7 @@ public class CombatManager : MonoBehaviour
     {
         List<Monster> reverseArmy = army;
         reverseArmy.Reverse();
-        for (int i = 0; i < 10 * 10 && (i < reverseArmy.Count); i++)
+        for (int i = 0; i < armyHeight * armyWidth && (i < reverseArmy.Count); i++)
         {
             Instantiate(reverseArmy[i].spritePrefab,
                 anchor.position + new Vector3(armyGap * (i % 10), armyGap * (i / 10), 0),
@@ -154,8 +158,8 @@ public class CombatManager : MonoBehaviour
         int monsterArmyDamage = Mathf.RoundToInt(monsterArmyStrength * Random.Range(minMultiplier, maxMultiplier));
         int enemyArmyDamage = Mathf.RoundToInt(enemyArmyStrength * Random.Range(minMultiplier, maxMultiplier));
 
-        enemyDamage.text = enemyArmyDamage.ToString();
-        monsterDamage.text = monsterArmyDamage.ToString();
+        enemyDamage.text = "DAMAGE DEALT = " + enemyArmyDamage;
+        monsterDamage.text = "DAMAGE DEALT = " + monsterArmyDamage;
         
         int excessDamage = ApplyDamage(_monsterArmy, enemyArmyDamage);
         ApplyDamage(_enemyArmy, monsterArmyDamage);
