@@ -25,6 +25,7 @@ public class Dirt : MonoBehaviour
             canBeBroken = true;
         }
     }
+    //Comenatario
     private void Update()
     {
         if(Input.GetButtonDown("Fire1") && canBeBroken){
