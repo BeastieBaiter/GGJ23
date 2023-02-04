@@ -31,8 +31,12 @@ public class CombatManager : MonoBehaviour
         _enemyArmy = WaveManager.Instance.GetNextWave(1);
 
         DisplayInGrid(true);
-        while (_monsterArmy.Count > 0 || _enemyArmy.Count > 0)
+        while (true)
         {
+            if (_monsterArmy.Count <= 0 || _enemyArmy.Count <= 0)
+            {
+                break;
+            }
             Attack();
             DisplayInGrid(false);
             Debug.Log("The monster army has " + _monsterArmy.Count + " monsters");
@@ -40,12 +44,11 @@ public class CombatManager : MonoBehaviour
 
         }
 
-        if (_monsterArmy.Count == 0 && GameManager.Instance.currTreeHealth <= 0)
+        if (GameManager.Instance.currTreeHealth <= 0)
         {
             GameManager.Instance.GameOver();
         }
-
-        if (_enemyArmy.Count == 0)
+        else
         {
             GameManager.Instance.BattleOver(_monsterArmy);
         }
@@ -127,7 +130,7 @@ public class CombatManager : MonoBehaviour
             int healthLeft = m.currentHealth - damageLeft;
             damageLeft = healthLeft <= 0
                 ? Mathf.Clamp(damageLeft - m.maxHealth, 0, damage)
-                : Mathf.Clamp(damageLeft - (m.maxHealth - m.currentHealth), 0, damage);
+                : 0;
             if (healthLeft > 0)
             {
                 newArmy.Add(m);

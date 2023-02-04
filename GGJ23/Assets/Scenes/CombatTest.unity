@@ -468,9 +468,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 669011305}
-  - component: {fileID: 669011304}
-  - component: {fileID: 669011303}
   - component: {fileID: 669011306}
+  - component: {fileID: 669011307}
+  - component: {fileID: 669011308}
   m_Layer: 0
   m_Name: ManagerHolder
   m_TagString: Untagged
@@ -478,38 +478,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &669011303
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 669011302}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb42991bcdbd76409b0251645d934d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  armyGap: 0.7
-  enemyArmyPos: {fileID: 652426652}
-  monsterArmyPos: {fileID: 700109849}
-  testPrefab: {fileID: 227917097921611907, guid: c7326c695da843442aa7b1f54e2dd8ab, type: 3}
-  minMultiplier: 1
-  maxMultiplier: 1
---- !u!114 &669011304
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 669011302}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de970bea7da60764b8440f32b7eafdc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currTreeHealth: 0
-  maxTreeHealth: 0
 --- !u!4 &669011305
 Transform:
   m_ObjectHideFlags: 0
@@ -534,15 +502,56 @@ MonoBehaviour:
   m_GameObject: {fileID: 669011302}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de970bea7da60764b8440f32b7eafdc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currTreeHealth: 0
+  maxTreeHealth: 0
+  gridStartPos: {x: 0, y: 0}
+  gridWidth: 0
+  gridHeight: 0
+  dirt: {fileID: 0}
+  dirts: []
+  upgrades:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+--- !u!114 &669011307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 669011302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 12f6a9b87a648144ea8e022b13920538, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialArmyStrength: 300
+  initialArmyStrength: 20
   linearProgressionMultiplier: 1
   monsters:
   - {fileID: 3372134077248922009, guid: eae880101706aa548a8dceda5c895adf, type: 3}
   - {fileID: 3318831758800282595, guid: 35ed989603ee7ea4d845f4517e567b7c, type: 3}
   - {fileID: 4358171669275398192, guid: b5eb2adfca5bfd845ab0444647018bed, type: 3}
+--- !u!114 &669011308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 669011302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adb42991bcdbd76409b0251645d934d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  armyGap: 0.7
+  enemyArmyPos: {fileID: 652426652}
+  monsterArmyPos: {fileID: 700109849}
+  testPrefab: {fileID: 0}
+  minMultiplier: 0.75
+  maxMultiplier: 1.25
 --- !u!1 &700109848
 GameObject:
   m_ObjectHideFlags: 0
