@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WaterLevel : MonoBehaviour
+public class Dirt : MonoBehaviour
 {
-    
     public int waterLevel;
     public Sprite[] spritesWaterLevel = new Sprite[4];
     SpriteRenderer spriteRenderer;
