@@ -90,6 +90,9 @@ public class GameManager : MonoBehaviour
     }
     void SpawnDirt(int x,int y){
         var dirtClone=Instantiate(dirt, new Vector2(x,y), Quaternion.identity);
+        if(x==0 && y==0){
+            dirtClone.GetComponent<Dirt>().canBeBroken=true;
+        }
         dirtClone.name = "Dirt" + x + y;
         dirts.Add(dirtClone.GetComponent<Dirt>());
         dirtClone.transform.parent=parent.transform;
