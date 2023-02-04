@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f59999ecd7b7a24469fd195be9f06f6e
+guid: c8cbe82876cfeaf46822826c5b15eb1d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,11 +117,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 6442AC21-CB22-4780-AAF8-19D68BFB5D84_0
+      name: YellowCarrot2_0
       rect:
         serializedVersion: 2
-        x: 675
-        y: 196
+        x: 9
+        y: 13
         width: 52
         height: 113
       alignment: 0
@@ -131,8 +131,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac4f9396c0beeb5428edf2e48ee7c1a8
-      internalID: 154354956
+      spriteID: 97dbd876170e66e4393b10fab5a355ce
+      internalID: -354491472
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      6442AC21-CB22-4780-AAF8-19D68BFB5D84_0: 154354956
+      YellowCarrot2_0: -354491472
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
