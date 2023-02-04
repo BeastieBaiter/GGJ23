@@ -10,13 +10,13 @@ public class Dirt : MonoBehaviour
     public Sprite[] spritesWaterLevel = new Sprite[4];
     public bool canBeBroken=false;
     CircleCollider2D circleCollider2D;
-    SpriteRenderer spriteRenderer;
     
     void Start()
     {
+        //this.spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        //spriteRenderer.sprite = spritesWaterLevel[0];
         circleCollider2D = gameObject.GetComponent<CircleCollider2D>();
         waterLevel = 0;
-        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
     }
     private void OnTriggerExit2D(Collider2D other) {
         if (other.gameObject.CompareTag("Broken"))

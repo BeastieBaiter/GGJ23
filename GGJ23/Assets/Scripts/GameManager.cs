@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     private TimeManager _timeManager;
     private CombatManager _combatManager;
     
+    public int counter=0;
     [HideInInspector] public int currTreeHealth;
     public int maxTreeHealth;
     public List<Monster> monsterArmy { get; private set;}
@@ -62,6 +63,14 @@ public class GameManager : MonoBehaviour
     {
         if(Input.GetButtonDown("Fire1")){
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+            if(hit.collider!= null && hit.collider.gameObject.tag == "Upgrade"){
+                counter+=1;
+                Debug.Log(hit.collider.gameObject.name +"clicked");
+                hit.collider.gameObject.GetComponent<CircleCollider2D>().isTrigger = false;
+                hit.collider.gameObject.tag = "Broken";
+                hit.collider.gameObject.SetActive(false);
+            }
+            
             if (hit.collider != null && hit.collider.gameObject.tag == "Dirt" && hit.collider.gameObject.GetComponent<Dirt>().canBeBroken)
             {
                 //remove Dirt if clicked

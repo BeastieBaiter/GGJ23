@@ -167,6 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de970bea7da60764b8440f32b7eafdc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  counter: 0
   currTreeHealth: 0
   maxTreeHealth: 0
   gridStartPos: {x: 0, y: 0}

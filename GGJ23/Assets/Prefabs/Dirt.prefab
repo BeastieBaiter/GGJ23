@@ -77,12 +77,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.87058824, g: 0.72156864, b: 0.6862745, a: 1}
+  m_Sprite: {fileID: 1644770853, guid: 5c37cdaffe50186478550b0f67455127, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.9, y: 0.9}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -102,10 +102,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waterLevel: 0
   spritesWaterLevel:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: dec9a12f0adf9ba43923ec3d6b0a81f7, type: 3}
+  - {fileID: 21300000, guid: e39d2d7bc5fbcd24cba1dbff817e03e7, type: 3}
+  - {fileID: 21300000, guid: a9b06104e5a317c4c8b5db66c6ec2ba4, type: 3}
+  - {fileID: 21300000, guid: a8bebcf66d0969b438a53bd5b00e0312, type: 3}
   canBeBroken: 0
 --- !u!61 &8951587087610975572
 BoxCollider2D:
@@ -125,7 +125,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
+    newSize: {x: 0.9, y: 0.9}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
