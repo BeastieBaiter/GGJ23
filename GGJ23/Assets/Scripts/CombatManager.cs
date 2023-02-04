@@ -23,15 +23,13 @@ public class CombatManager : MonoBehaviour
     }
 
     public TMP_Text VStext;
-    public TMP_Text enemyHealth;
-    public TMP_Text enemyStrength;
-    public TMP_Text monsterHealth;
-    public TMP_Text monsterStrength;
+    public TMP_Text enemyStats;
+    public TMP_Text monsterStats;
     public TMP_Text enemyDamage;
     public TMP_Text monsterDamage;
     public TMP_Text enemyCounter;
     public TMP_Text monsterCounter;
-    public Image timer;
+    //public TMP_Text timer;
     
     public float armyGap;
     public Transform enemyArmyPos;
@@ -55,8 +53,8 @@ public class CombatManager : MonoBehaviour
     private void Update()
     {
         _timeLeft = Mathf.Clamp(_timeLeft - Time.deltaTime, 0, 10f);
-        timer.fillAmount = _timeLeft / 10f;
-        Debug.Log(_timeLeft.ToString());
+        //timer.fillAmount = _timeLeft / 10f;
+        //timer.text = _timeLeft.ToString();
     }
 
     public void StartBattle()
@@ -120,12 +118,10 @@ public class CombatManager : MonoBehaviour
         int monsterArmyHealth = GetArmyHealth(_monsterArmy);
         int enemyArmyHealth = GetArmyHealth(_enemyArmy);
 
-        monsterStrength.text = monsterArmyStrength.ToString();
-        monsterHealth.text = monsterArmyHealth.ToString();
-        
-        enemyStrength.text = enemyArmyStrength.ToString();
-        enemyHealth.text = enemyArmyHealth.ToString();
-        
+        monsterStats.text = "HP: " + monsterArmyHealth + "   STR: " + monsterArmyStrength;
+
+        enemyStats.text = "HP: " + enemyArmyHealth + "   STR: " + enemyArmyStrength;
+
         enemyCounter.text = _enemyArmy.Count.ToString();
         monsterCounter.text = _monsterArmy.Count.ToString();
 
@@ -159,7 +155,7 @@ public class CombatManager : MonoBehaviour
         int enemyArmyDamage = Mathf.RoundToInt(enemyArmyStrength * Random.Range(minMultiplier, maxMultiplier));
 
         enemyDamage.text = enemyArmyDamage.ToString();
-        monsterDamage.text = monsterDamage.ToString();
+        monsterDamage.text = monsterArmyDamage.ToString();
         
         int excessDamage = ApplyDamage(_monsterArmy, enemyArmyDamage);
         ApplyDamage(_enemyArmy, monsterArmyDamage);
