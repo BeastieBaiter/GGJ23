@@ -170,10 +170,12 @@ MonoBehaviour:
   counter: 0
   currTreeHealth: 0
   maxTreeHealth: 0
+  monsterPrefabs: []
   gridStartPos: {x: 0, y: 0}
   gridWidth: 10
   gridHeight: 50
   dirt: {fileID: 3008313780465116212, guid: f7b3f292c211cd34db37642be07dc48a, type: 3}
+  bedrock: {fileID: 0}
   dirts: []
   upgrades:
   - {fileID: 4999965300991081022, guid: b4dddebb19147a1458b508b776f60e8a, type: 3}
