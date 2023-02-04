@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Upgrade : MonoBehaviour
+public class Bedrock : MonoBehaviour
 {
     public bool canBeBroken=false;
+    GameManager gameManager;
     CircleCollider2D circleCollider2D;
     
     void Start()
@@ -12,9 +13,9 @@ public class Upgrade : MonoBehaviour
         circleCollider2D = gameObject.GetComponent<CircleCollider2D>();
     }
     private void OnTriggerExit2D(Collider2D other) {
-        if (other.gameObject.CompareTag("Broken"))
+        if (other.gameObject.CompareTag("Broken") && gameManager.counter == 3)
         {
-            this.gameObject.GetComponent<Upgrade>().canBeBroken = true;
+            this.gameObject.GetComponent<Bedrock>().canBeBroken = true;
         }
         
     }

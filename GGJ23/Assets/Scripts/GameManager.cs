@@ -38,11 +38,12 @@ public class GameManager : MonoBehaviour
     public int gridHeight;
     // dirt prefab
     public GameObject dirt; 
+    // bedrock prefab
+    public GameObject bedrock;
     //Parent object
     GameObject parent;
     // List of dirt objects
     public List<Dirt> dirts = new List<Dirt>();
-
     // Array of Upgrade objects to spawn
     public GameObject[] upgrades = new GameObject[3];
     // Array of Vector2 to spawn upgrades
@@ -70,6 +71,10 @@ public class GameManager : MonoBehaviour
                 hit.collider.gameObject.GetComponent<CircleCollider2D>().isTrigger = false;
                 hit.collider.gameObject.tag = "Broken";
                 hit.collider.gameObject.SetActive(false);
+            }
+            if (hit.collider != null && hit.collider.gameObject.tag == "Bedrock" && hit.collider.gameObject.GetComponent<Bedrock>().canBeBroken)
+            {
+                EndGame();
             }
             
             if (hit.collider != null && hit.collider.gameObject.tag == "Dirt" && hit.collider.gameObject.GetComponent<Dirt>().canBeBroken)
@@ -129,9 +134,18 @@ public class GameManager : MonoBehaviour
                     SpawnUpgrade(x, y, int.Parse(pos.ToString()));
             }
         }
+        for (int x = 0; x < gridWidth; x++){
+            SpawnBedrock(x, gridHeight);
+        }
+    }
+    void SpawnBedrock(int x,int y){
+        var bedrockClone=Instantiate(bedrock, new Vector2(x,y), Quaternion.identity);
+        bedrockClone.name = "Bedrock" + x + y;
+        bedrockClone.transform.parent=parent.transform;
     }
     void SpawnDirt(int x,int y){
         var dirtClone=Instantiate(dirt, new Vector2(x,y), Quaternion.identity);
+        // TO DO: change to the carrot coords
         if(x==0 && y==0){
             dirtClone.GetComponent<Dirt>().canBeBroken=true;
         }
@@ -183,4 +197,8 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("The game is over.");
     }
+    public void EndGame()
+    {
+        Debug.Log("The game is over.");
+    }   
 }
