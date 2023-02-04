@@ -1,5 +1,9 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class CombatManager : MonoBehaviour
@@ -17,12 +21,25 @@ public class CombatManager : MonoBehaviour
             DontDestroyOnLoad(this);
         }
     }
+
+    public TMP_Text VStext;
+    public TMP_Text enemyHealth;
+    public TMP_Text enemyStrength;
+    public TMP_Text monsterHealth;
+    public TMP_Text monsterStrength;
+    public TMP_Text enemyDamage;
+    public TMP_Text monsterDamage;
+    public TMP_Text enemyCounter;
+    public TMP_Text monsterCounter;
+    public Image timer;
     
     public float armyGap;
     public Transform enemyArmyPos;
     public Transform monsterArmyPos;
 
-    public GameObject testPrefab;
+    public float timeBetweenAttacks = 10f;
+    public float timeBetweenSpawns = 0.2f;
+    private float _timeLeft;
     
     public float minMultiplier;
     public float maxMultiplier;
@@ -32,19 +49,32 @@ public class CombatManager : MonoBehaviour
 
     private void Start()
     {
-        //DisplayInGridTest();
         StartBattle();
+    }
+
+    private void Update()
+    {
+        _timeLeft = Mathf.Clamp(_timeLeft - Time.deltaTime, 0, 10f);
+        timer.fillAmount = _timeLeft / 10f;
+        Debug.Log(_timeLeft.ToString());
     }
 
     public void StartBattle()
     {
         //_monsterArmy = GameManager.Instance.monsterArmy;
         //_enemyArmy = GameManager.Instance.enemyArmy;
-        _monsterArmy = WaveManager.Instance.GetNextWave(2);
-        _enemyArmy = WaveManager.Instance.GetNextWave(1);
+        _monsterArmy = WaveManager.Instance.GetNextWave(20);
+        _enemyArmy = WaveManager.Instance.GetNextWave(15);
+        _timeLeft = timeBetweenAttacks;
+        StartCoroutine(BattleProcess());
+    }
 
+    private IEnumerator BattleProcess()
+    {
         int counter = 0;
         DisplayInGrid(true);
+        yield return new WaitForSeconds(timeBetweenAttacks);
+        _timeLeft = timeBetweenAttacks;
         while (counter < 10)
         {
             if (_monsterArmy.Count <= 0 || _enemyArmy.Count <= 0)
@@ -52,12 +82,16 @@ public class CombatManager : MonoBehaviour
                 break;
             }
             Attack();
-            DisplayInGrid(false);
-            Debug.Log("The monster army has " + _monsterArmy.Count + " monsters");
-            Debug.Log("The enemy army has " + _enemyArmy.Count + " monsters");
+            DisplayInGrid(true);
             counter++;
+            if (_monsterArmy.Count <= 0 || _enemyArmy.Count <= 0)
+            {
+                break;
+            }
+            yield return new WaitForSeconds(timeBetweenAttacks);
+            _timeLeft = timeBetweenAttacks;
         }
-
+       
         if (GameManager.Instance.currTreeHealth <= 0)
         {
             GameManager.Instance.GameOver();
@@ -65,17 +99,11 @@ public class CombatManager : MonoBehaviour
         else
         {
             GameManager.Instance.BattleOver(_monsterArmy);
-        }
+        } 
     }
 
     private void DisplayInGrid(bool firstDraw)
     {
-        
-        //A BOOL é para dar beautify se tiver tempo, e basicamente por os sprites a aparecerem 1 a 1 (mas rapidamente) 
-        //com som e tudo
-        
-        //O CODIGO SÓ DÁ RENDER DE 100 SPRITES
-        //SE SOBRAR MAIS DO EXÉRCITO, NÃO SÃO DADOS RENDER, ATÉ AO PRÓXIMO ATAQUE
         
         for (int i = enemyArmyPos.childCount - 1; i >= 0; i--)
         {
@@ -87,48 +115,53 @@ public class CombatManager : MonoBehaviour
             Destroy(monsterArmyPos.GetChild(i).gameObject);
         }
         
-        List<Monster> reverseArmy = _enemyArmy;
+        int monsterArmyStrength = GetArmyStrength(_monsterArmy);
+        int enemyArmyStrength = GetArmyStrength(_enemyArmy);
+        int monsterArmyHealth = GetArmyHealth(_monsterArmy);
+        int enemyArmyHealth = GetArmyHealth(_enemyArmy);
+
+        monsterStrength.text = monsterArmyStrength.ToString();
+        monsterHealth.text = monsterArmyHealth.ToString();
+        
+        enemyStrength.text = enemyArmyStrength.ToString();
+        enemyHealth.text = enemyArmyHealth.ToString();
+        
+        enemyCounter.text = _enemyArmy.Count.ToString();
+        monsterCounter.text = _monsterArmy.Count.ToString();
+
+        StartCoroutine(DrawSprites(firstDraw, _enemyArmy, enemyArmyPos));
+        StartCoroutine(DrawSprites(firstDraw, _monsterArmy, monsterArmyPos));
+
+    }
+    
+    private IEnumerator DrawSprites(bool firstDraw, List<Monster> army, Transform anchor)
+    {
+        List<Monster> reverseArmy = army;
         reverseArmy.Reverse();
         for (int i = 0; i < 10 * 10 && (i < reverseArmy.Count); i++)
         {
             Instantiate(reverseArmy[i].spritePrefab,
-                enemyArmyPos.position + new Vector3(armyGap * (i % 10), armyGap * (i / 10), 0),
+                anchor.position + new Vector3(armyGap * (i % 10), armyGap * (i / 10), 0),
                 Quaternion.identity, enemyArmyPos);
-        }
-        
-        reverseArmy = _monsterArmy;
-        reverseArmy.Reverse();
-        for (int i = 0; i < 10 * 10 && i < reverseArmy.Count; i++)
-        {
-            Instantiate(reverseArmy[i].spritePrefab,
-                monsterArmyPos.position + new Vector3(armyGap * (i % 10), armyGap * (i / 10), 0),
-                Quaternion.identity, monsterArmyPos);
+            if (firstDraw)
+            {
+                yield return new WaitForSeconds(timeBetweenSpawns);
+            }
         }
     }
 
     private void Attack()
     {
-        int monsterArmyStrength = 0;
-        int enemyArmyStrength = 0;
-
-        foreach (Monster m in _monsterArmy)
-        {
-            monsterArmyStrength += m.damage;
-        }
-
-        foreach (Monster m in _enemyArmy)
-        {
-            enemyArmyStrength += m.damage;
-        }
-
+        int monsterArmyStrength = GetArmyStrength(_monsterArmy);
+        int enemyArmyStrength = GetArmyStrength(_enemyArmy);
+        
         int monsterArmyDamage = Mathf.RoundToInt(monsterArmyStrength * Random.Range(minMultiplier, maxMultiplier));
         int enemyArmyDamage = Mathf.RoundToInt(enemyArmyStrength * Random.Range(minMultiplier, maxMultiplier));
 
-        Debug.Log("The monster army is dealing " + monsterArmyDamage + " damage");
-        Debug.Log("The enemy army is dealing " + enemyArmyDamage + " damage");
-
+        enemyDamage.text = enemyArmyDamage.ToString();
+        monsterDamage.text = monsterDamage.ToString();
+        
         int excessDamage = ApplyDamage(_monsterArmy, enemyArmyDamage);
-        Debug.Log("The monster army suffered " + excessDamage + " excess damage");
         ApplyDamage(_enemyArmy, monsterArmyDamage);
 
         GameManager.Instance.HurtTree(excessDamage);
@@ -183,22 +216,23 @@ public class CombatManager : MonoBehaviour
         return damageLeft > 0 ? damageLeft : 0;
     }
     
-    
-    private void DisplayInGridTest()
+    private int GetArmyStrength(List<Monster> army)
     {
-     
-        for (int i = 0; i < 10 * 10; i++)
+        int counter = 0;
+        foreach (Monster m in army)
         {
-            Instantiate(testPrefab,
-                enemyArmyPos.position + new Vector3(armyGap * (i % 10), armyGap * (i / 10), 0),
-                Quaternion.identity, enemyArmyPos);
+            counter += m.damage;
         }
-             
-        for (int i = 0; i < 10 * 10; i++)
+        return counter;
+    }
+    
+    private int GetArmyHealth(List<Monster> army)
+    {
+        int counter = 0;
+        foreach (Monster m in army)
         {
-            Instantiate(testPrefab,
-                monsterArmyPos.position + new Vector3(armyGap * (i % 10), armyGap * (i / 10), 0),
-                Quaternion.identity, monsterArmyPos);
+            counter += m.currentHealth;
         }
+        return counter;
     }
 }
