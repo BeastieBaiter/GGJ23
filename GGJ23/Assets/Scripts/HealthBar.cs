@@ -8,9 +8,9 @@ public class HealthBar : MonoBehaviour
 {
 
     [SerializeField] private Slider slider;
+    [SerializeField] private TMP_Text healthText;
     
     private int maxHealth, currHealth;
-    private TMP_Text healthText;
 
     public void SetEverything(int maxHealthValue)
     {
