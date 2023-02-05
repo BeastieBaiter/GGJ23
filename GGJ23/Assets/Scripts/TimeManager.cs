@@ -40,8 +40,13 @@ public class TimeManager : MonoBehaviour
     {
         if (TimerRunning)
         {
+
             if (_timeRemaining > 0)
             {
+                if (_timeRemaining == 3)
+                {
+                    _audioManager.Play("RunningOutOfTime");
+                }
                 _uiManager.UpdateTimerText(DisplayTime());
                 _timeRemaining -= Time.deltaTime;
             }
