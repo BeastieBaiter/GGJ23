@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private int waveCounter;
+    public int waveCounter { get; private set;}
     private UIManager _uiManager;
     private AudioManager _audioManager;
     private TimeManager _timeManager;
@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         GridBuilder();
-        waveCounter = 0;
+        waveCounter = 1;
         currTreeHealth = maxTreeHealth;
         _audioManager = AudioManager.Instance;
         _uiManager = UIManager.Instance;

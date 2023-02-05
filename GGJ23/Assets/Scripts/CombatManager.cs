@@ -66,9 +66,7 @@ public class CombatManager : MonoBehaviour
     {
         combatUI.SetActive(true);
         _monsterArmy = GameManager.Instance.monsterArmy;
-        _enemyArmy = GameManager.Instance.enemyArmy;
-        //_monsterArmy = WaveManager.Instance.GetNextWave(20);
-        //_enemyArmy = WaveManager.Instance.GetNextWave(15);
+        _enemyArmy = WaveManager.Instance.GetNextWave(GameManager.Instance.waveCounter);
         _timeLeft = timeBetweenAttacks;
         StartCoroutine(BattleProcess());
     }

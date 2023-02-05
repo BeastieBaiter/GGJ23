@@ -23,18 +23,6 @@ public class WaveManager : MonoBehaviour
 
     public List<Monster> monsters;
 
-    private void Start()
-    {
-        /*List<Monster> enemies = GetNextWave(1);
-        foreach (Monster m in enemies)
-        {
-            Debug.Log(m.tier);
-        }
-
-        Debug.Log(Mathf.RoundToInt(1 * linearProgressionMultiplier * initialArmyStrength));
-        Debug.Log(GetArmyStrength(enemies));*/
-    }
-
     public List<Monster> GetNextWave(int waveNumber)
     {
         List<Monster> enemyArmy = new List<Monster>();
