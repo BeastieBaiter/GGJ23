@@ -949,7 +949,7 @@ MonoBehaviour:
   - {fileID: 8203106590882110918, guid: b5eb2adfca5bfd845ab0444647018bed, type: 3}
   gridStartPos: {x: -8.5, y: -5.5}
   gridWidth: 18
-  gridHeight: 36
+  gridHeight: 40
   dirt: {fileID: 3008313780465116212, guid: f7b3f292c211cd34db37642be07dc48a, type: 3}
   bedrock: {fileID: 8016448897187718562, guid: 0704c0e03e67315488111abca331f74d, type: 3}
   dirts: []
