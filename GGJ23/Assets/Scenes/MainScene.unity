@@ -942,8 +942,11 @@ MonoBehaviour:
   rain: {fileID: 1111294977}
   currTreeHealth: 0
   maxTreeHealth: 100
-  monsterPrefabs: []
-  gridStartPos: {x: -8.5, y: -4.5}
+  monsterPrefabs:
+  - {fileID: 6985782915602749311, guid: eae880101706aa548a8dceda5c895adf, type: 3}
+  - {fileID: 438129340133841324, guid: 35ed989603ee7ea4d845f4517e567b7c, type: 3}
+  - {fileID: 8203106590882110918, guid: b5eb2adfca5bfd845ab0444647018bed, type: 3}
+  gridStartPos: {x: -8.5, y: -5.5}
   gridWidth: 18
   gridHeight: 18
   dirt: {fileID: 3008313780465116212, guid: f7b3f292c211cd34db37642be07dc48a, type: 3}
@@ -1195,6 +1198,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5041124297235258951, guid: f3193dd4b19c89041bacce11f1fc71aa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5041124297235258952, guid: f3193dd4b19c89041bacce11f1fc71aa, type: 3}
+      propertyPath: topBoundry
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
