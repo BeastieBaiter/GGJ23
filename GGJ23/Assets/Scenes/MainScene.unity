@@ -709,7 +709,7 @@ MonoBehaviour:
   battleEndMessage: {fileID: 1813431113}
   armyWidth: 10
   armyHeight: 5
-  armyGap: 25
+  armyGap: 50
   enemyArmyPos: {fileID: 1724562590}
   monsterArmyPos: {fileID: 304806226}
   timeBetweenAttacks: 15
@@ -772,7 +772,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3fc74b3f9cd73f4295212aaeeb29e3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 100
+  duration: 20
 --- !u!1 &1622384377
 GameObject:
   m_ObjectHideFlags: 0
@@ -1349,7 +1349,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5041124297235258952, guid: f3193dd4b19c89041bacce11f1fc71aa, type: 3}
       propertyPath: bottomBoundary
-      value: -19
+      value: -41
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3193dd4b19c89041bacce11f1fc71aa, type: 3}
@@ -1360,6 +1360,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 304806227, guid: cb6c99e213ff5b24d865c1f1e4082332, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1724562591, guid: cb6c99e213ff5b24d865c1f1e4082332, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 361051141138578999, guid: cb6c99e213ff5b24d865c1f1e4082332, type: 3}
       propertyPath: m_Name
       value: UI
@@ -1520,7 +1528,9 @@ PrefabInstance:
       propertyPath: m_PreserveAspect
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1724562593, guid: cb6c99e213ff5b24d865c1f1e4082332, type: 3}
+    - {fileID: 304806229, guid: cb6c99e213ff5b24d865c1f1e4082332, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cb6c99e213ff5b24d865c1f1e4082332, type: 3}
 --- !u!114 &5221364259869064432 stripped
 MonoBehaviour:

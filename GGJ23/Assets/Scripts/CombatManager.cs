@@ -119,8 +119,8 @@ public class CombatManager : MonoBehaviour
             battleEndMessage.gameObject.SetActive(true);
             combatUI.SetActive(false);
             int healthDiff = _beginningTreeHealth - GameManager.Instance.currTreeHealth;
-            battleEndMessage.text = "Your army has " + _monsterArmy.Count + " carrots and the tree took " + healthDiff + " damage.";
-            yield return new WaitForSeconds(timeBetweenAttacks);
+            battleEndMessage.text = "Your army has " + _monsterArmy.Count + " carrots and the big carrot took " + healthDiff + " damage.";
+            yield return new WaitForSeconds(5f);
             battleEndMessage.gameObject.SetActive(false);
             GameManager.Instance.BattleOver(_monsterArmy);
         } 
@@ -239,7 +239,7 @@ public class CombatManager : MonoBehaviour
             _enemyArmy.Reverse();
         }
 
-        return damageLeft > 0 ? damageLeft : 0;
+        return Mathf.RoundToInt(Mathf.Clamp(damageLeft, 0, Mathf.Infinity));
     }
     
     private int GetArmyStrength(List<Monster> army)
