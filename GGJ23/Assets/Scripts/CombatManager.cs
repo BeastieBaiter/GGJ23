@@ -198,7 +198,7 @@ public class CombatManager : MonoBehaviour
             }
         }
 
-        if (toDestroy.Count > 0)
+        /*if (toDestroy.Count > 0)
         {
             foreach (Monster m in toDestroy)
             {
@@ -209,7 +209,7 @@ public class CombatManager : MonoBehaviour
                 }
 
             }
-        }
+        }*/
 
         if (army == _monsterArmy)
         {

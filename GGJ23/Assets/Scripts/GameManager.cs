@@ -32,7 +32,6 @@ public class GameManager : MonoBehaviour
     public int maxTreeHealth;
     public List<GameObject> monsterPrefabs;
     public List<Monster> monsterArmy { get; private set;}
-    public List<Monster> enemyArmy { get; private set;}
     
     /* Grid Variables */
     // starting position of the grid
@@ -63,7 +62,6 @@ public class GameManager : MonoBehaviour
         _timeManager = TimeManager.Instance;
         _combatManager = CombatManager.Instance;
         monsterArmy = new List<Monster>();
-        enemyArmy = new List<Monster>();
     }
 
     public void Update()
