@@ -15,13 +15,13 @@ public class Monster : MonoBehaviour
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
         currentHealth = maxHealth;
-        //Invoke(nameof(Teleport), 1.5f);
+        Invoke(nameof(Teleport), 1.5f);
     }
 
     private void Teleport()
     {
         _spriteRenderer.enabled = false;
-        _teleport = Instantiate(teleportPrefab, transform.position, Quaternion.identity, transform);
-        Destroy(_teleport, 1f);
+        //_teleport = Instantiate(teleportPrefab, transform.position, Quaternion.identity, transform);
+        //Destroy(_teleport, 1f);
     }
 }
