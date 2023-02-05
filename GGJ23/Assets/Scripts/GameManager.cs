@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     public List<GameObject> carrotPhases;
     public GameObject rain;
     
-    [HideInInspector] public int currTreeHealth;
+    public int currTreeHealth;
     public int maxTreeHealth;
     public List<GameObject> monsterPrefabs;
     public List<Monster> monsterArmy { get; private set;}
@@ -144,6 +144,7 @@ public class GameManager : MonoBehaviour
         {
             case 1:
                 maxTreeHealth += healthBuff;
+                currTreeHealth = maxTreeHealth;
                 _uiManager.ResetHealthBar();
                 break;
             case 2:
