@@ -151,11 +151,13 @@ public class GameManager : MonoBehaviour
                     SpawnUpgrade(x, y, int.Parse(pos.ToString()));
             }
         }
-        for (int x = 0; x < gridWidth; x++){
-            SpawnBedrock(x, gridHeight);
+        for (float x = gridStartPos.x; x < gridWidth + gridStartPos.x; x++){
+            SpawnBedrock(x, (-1 * (Math.Abs(gridStartPos.y) + gridHeight)));
         }
+
+        StartCoroutine(DelayRainStart());
     }
-    void SpawnBedrock(int x,int y){
+    void SpawnBedrock(float x,float y){
         var bedrockClone=Instantiate(bedrock, new Vector2(x,y), Quaternion.identity);
         bedrockClone.name = "Bedrock" + x + y;
         bedrockClone.transform.parent=parent.transform;
@@ -182,6 +184,13 @@ public class GameManager : MonoBehaviour
         }
         return -1;
     }
+
+    IEnumerator DelayRainStart()
+    {
+        yield return new WaitForSeconds(1f);
+        MakeItRain();
+    }
+    
     /*End of Grid Builder*/
     void MakeItRain(){
         foreach (var dirt in dirts)
@@ -214,6 +223,7 @@ public class GameManager : MonoBehaviour
     public void BattleOver(List<Monster> newMonsterArmy)
     {
         _timeManager.ResetTimer();
+        MakeItRain();
         //pan da camara para baixo
         //reenable das setas
     }
