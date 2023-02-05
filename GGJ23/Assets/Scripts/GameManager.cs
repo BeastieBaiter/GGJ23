@@ -233,9 +233,12 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         Debug.Log("The game is over.");
+        _uiManager.OpenEndScreenPanel("Game Over, The Great CarRoot was Killed");
+        Time.timeScale = 0;
     }
     public void EndGame()
     {
         Debug.Log("The game is over.");
+        _uiManager.OpenEndScreenPanel("Victory, Long Live The Great CarRoot");
     }   
 }
