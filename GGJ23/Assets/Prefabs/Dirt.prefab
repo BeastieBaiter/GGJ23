@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33e1dad11ab37314cb0fba5878382e35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rootSprite: {fileID: 7482667652216324306, guid: 624cae90411186f438f6272128725b20, type: 3}
+  rootSprite: {fileID: -2104145414, guid: d0918160dd91a9c439817efc52fa644d, type: 3}
   waterLevel: 0
   spritesWaterLevel:
   - {fileID: 21300000, guid: 6fd67aa823d580345a64c511a101d4cf, type: 3}
