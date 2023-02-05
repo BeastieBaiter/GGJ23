@@ -185,7 +185,7 @@ public class CombatManager : MonoBehaviour
 
     private void Attack()
     {
-        float multiplier = GameManager.Instance.dmgBuff ? 1 : damageBuff;
+        float multiplier = GameManager.Instance.dmgBuff ? damageBuff : 1;
         int monsterArmyStrength = Mathf.RoundToInt(GetArmyStrength(_monsterArmy) * multiplier);
         int enemyArmyStrength = GetArmyStrength(_enemyArmy);
         
