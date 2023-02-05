@@ -50,7 +50,5 @@ public class Dirt : MonoBehaviour
     public void ChangeRootSprite()
     {
         gameObject.GetComponent<SpriteRenderer>().sprite = rootSprite;
-        var temp = new Color(255f, 100f, 0f, 255f);
-        gameObject.GetComponent<SpriteRenderer>().color = temp;
     }
 }

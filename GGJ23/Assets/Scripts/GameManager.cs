@@ -259,7 +259,6 @@ public class GameManager : MonoBehaviour
 
     public void BattleStart()
     {
-        _audioManager.Play("RunningOutOfTime");
         
         _timeManager.StopTime();
         //MOVER A CAMARA

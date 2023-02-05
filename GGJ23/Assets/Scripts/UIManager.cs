@@ -32,9 +32,9 @@ public class UIManager : MonoBehaviour
 
     public void Start()
     {
+        _audioManager = AudioManager.Instance;
         if (SceneManager.GetActiveScene().name == "MainMenuScene") return;
         _gameManager = GameManager.Instance;
-        _audioManager = AudioManager.Instance;
         healthBar.SetEverything(_gameManager.maxTreeHealth);
     }
 
@@ -62,6 +62,7 @@ public class UIManager : MonoBehaviour
 
     public void Quit()
     {
+        _audioManager.Play("ButtonSound");
         Application.Quit();
     }
 
