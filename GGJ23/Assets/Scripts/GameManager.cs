@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     
     public int counter=0;
     public List<GameObject> carrotPhases;
-    
+    public GameObject rain;
     
     [HideInInspector] public int currTreeHealth;
     public int maxTreeHealth;
@@ -186,8 +186,16 @@ public class GameManager : MonoBehaviour
     void MakeItRain(){
         foreach (var dirt in dirts)
         {
+            StartCoroutine(Rain());
             dirt.UpdateWaterLevel();
         }
+    }
+
+    IEnumerator Rain()
+    {
+        rain.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        rain.SetActive(false);
     }
 
     public void HurtTree(int damage)
