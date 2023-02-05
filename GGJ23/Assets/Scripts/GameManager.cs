@@ -95,8 +95,8 @@ public class GameManager : MonoBehaviour
                 Debug.Log(hit.collider.gameObject.name +"clicked");
                 hit.collider.gameObject.GetComponent<CircleCollider2D>().isTrigger = false;
                 hit.collider.gameObject.tag = "Broken";
+                GiveBuff(hit.collider.gameObject.GetComponent<Upgrade>().index);
                 hit.collider.gameObject.SetActive(false);
-                GiveBuff(gameObject.GetComponent<Upgrade>().index);
             }
 
             if (hit.collider != null && hit.collider.gameObject.tag == "Bedrock" && hit.collider.gameObject.GetComponent<Bedrock>().canBeBroken)
