@@ -25,6 +25,9 @@ public class GameManager : MonoBehaviour
     private CombatManager _combatManager;
     
     public int counter=0;
+    public List<GameObject> carrotPhases;
+    
+    
     [HideInInspector] public int currTreeHealth;
     public int maxTreeHealth;
     public List<GameObject> monsterPrefabs;
@@ -63,6 +66,19 @@ public class GameManager : MonoBehaviour
 
     public void Update()
     {
+
+        for (int i = 0; i < carrotPhases.Count; i++)
+        {
+            if (counter == i)
+            {
+                carrotPhases[i].SetActive(true);
+            }
+            else
+            {
+                carrotPhases[i].SetActive(false);
+            }
+        }
+        
         if(Input.GetButtonDown("Fire1")){
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
             if(hit.collider!= null && hit.collider.gameObject.tag == "Upgrade"){
