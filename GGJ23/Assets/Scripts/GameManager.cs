@@ -225,6 +225,7 @@ public class GameManager : MonoBehaviour
     public void BattleOver(List<Monster> newMonsterArmy)
     {
         _timeManager.ResetTimer();
+        MakeItRain();
         //pan da camara para baixo
         //reenable das setas
     }
