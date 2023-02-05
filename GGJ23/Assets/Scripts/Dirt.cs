@@ -11,25 +11,26 @@ public class Dirt : MonoBehaviour
     public Sprite[] spritesWaterLevel = new Sprite[4];
     public bool canBeBroken=false;
     CircleCollider2D circleCollider2D;
-    
+
     void Start()
     {
         //this.spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         //spriteRenderer.sprite = spritesWaterLevel[0];
         circleCollider2D = gameObject.GetComponent<CircleCollider2D>();
         waterLevel = 0;
+
     }
 
     private void Update()
     {
     }
 
-    private void OnTriggerExit2D(Collider2D other) {
+    private void OnTriggerStay2D(Collider2D other)
+    {
         if (other.gameObject.CompareTag("Broken"))
         {
-            this.gameObject.GetComponent<Dirt>().canBeBroken = true;
+            gameObject.GetComponent<Dirt>().canBeBroken = true;
         }
-        
     }
 
     public void UpdateWaterLevel()
@@ -49,5 +50,7 @@ public class Dirt : MonoBehaviour
     public void ChangeRootSprite()
     {
         gameObject.GetComponent<SpriteRenderer>().sprite = rootSprite;
+        var temp = new Color(255f, 100f, 0f, 255f);
+        gameObject.GetComponent<SpriteRenderer>().color = temp;
     }
 }

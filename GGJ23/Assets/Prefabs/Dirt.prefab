@@ -82,7 +82,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.91, y: 0.91}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33e1dad11ab37314cb0fba5878382e35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rootSprite: {fileID: 21300000, guid: d529f1637739a564896600f00ac42949, type: 3}
+  rootSprite: {fileID: 7482667652216324306, guid: 624cae90411186f438f6272128725b20, type: 3}
   waterLevel: 0
   spritesWaterLevel:
   - {fileID: 21300000, guid: 6fd67aa823d580345a64c511a101d4cf, type: 3}
@@ -126,7 +126,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 1}
-    newSize: {x: 0.91, y: 0.91}
+    newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -149,7 +149,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.75
 --- !u!50 &-8879929539959630905
 Rigidbody2D:
   serializedVersion: 4
