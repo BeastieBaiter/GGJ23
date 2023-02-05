@@ -956,6 +956,8 @@ MonoBehaviour:
   - {fileID: 4056259253961998426, guid: 44b6be0e9c8c1ac44988876971914c0d, type: 3}
   - {fileID: 4557172875428533280, guid: c5d98935a3f087f4ab81669d134c19ee, type: 3}
   - {fileID: 5309270914253029652, guid: adb7f3604e0b35b4bbd101fe11001e81, type: 3}
+  healthBuff: 100
+  dmgResistanceValue: 0.6
 --- !u!224 &1724562590 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1724562590, guid: cb6c99e213ff5b24d865c1f1e4082332, type: 3}

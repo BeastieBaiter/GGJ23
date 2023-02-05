@@ -45,7 +45,8 @@ public class CombatManager : MonoBehaviour
     
     public float minMultiplier;
     public float maxMultiplier;
-
+    public float damageBuff;
+    
     private List<Monster> _monsterArmy;
     private List<Monster> _enemyArmy;
     
@@ -127,7 +128,8 @@ public class CombatManager : MonoBehaviour
             Destroy(monsterArmyPos.GetChild(i).gameObject);
         }
         
-        int monsterArmyStrength = GetArmyStrength(_monsterArmy);
+        float multiplier = GameManager.Instance.dmgBuff ? 1 : damageBuff;
+        int monsterArmyStrength = Mathf.RoundToInt(GetArmyStrength(_monsterArmy) * multiplier);        
         int enemyArmyStrength = GetArmyStrength(_enemyArmy);
         int monsterArmyHealth = GetArmyHealth(_monsterArmy);
         int enemyArmyHealth = GetArmyHealth(_enemyArmy);
@@ -162,7 +164,8 @@ public class CombatManager : MonoBehaviour
 
     private void Attack()
     {
-        int monsterArmyStrength = GetArmyStrength(_monsterArmy);
+        float multiplier = GameManager.Instance.dmgBuff ? 1 : damageBuff;
+        int monsterArmyStrength = Mathf.RoundToInt(GetArmyStrength(_monsterArmy) * multiplier);
         int enemyArmyStrength = GetArmyStrength(_enemyArmy);
         
         int monsterArmyDamage = Mathf.RoundToInt(monsterArmyStrength * Random.Range(minMultiplier, maxMultiplier));
