@@ -32,7 +32,6 @@ public class GameManager : MonoBehaviour
     public int maxTreeHealth;
     public List<GameObject> monsterPrefabs;
     public List<Monster> monsterArmy { get; private set;}
-    public List<Monster> enemyArmy { get; private set;}
     
     /* Grid Variables */
     // starting position of the grid
@@ -51,7 +50,8 @@ public class GameManager : MonoBehaviour
     public GameObject[] upgrades = new GameObject[3];
     // Array of Vector2 to spawn upgrades
     Vector2[] upgradeSpawnPos = new Vector2[3];
-    
+
+    private bool _battleStarted = false;
     
     private void Start()
     {
@@ -63,7 +63,6 @@ public class GameManager : MonoBehaviour
         _timeManager = TimeManager.Instance;
         _combatManager = CombatManager.Instance;
         monsterArmy = new List<Monster>();
-        enemyArmy = new List<Monster>();
     }
 
     public void Update()
@@ -122,8 +121,9 @@ public class GameManager : MonoBehaviour
             MakeItRain();
         }
 
-        if (!_timeManager.TimerRunning)
+        if (!_timeManager.TimerRunning && !_battleStarted)
         {
+            _battleStarted = true;
             BattleStart();
         }
     }
@@ -224,6 +224,7 @@ public class GameManager : MonoBehaviour
     
     public void BattleOver(List<Monster> newMonsterArmy)
     {
+        _battleStarted = false;
         _timeManager.ResetTimer();
         MakeItRain();
         //pan da camara para baixo
@@ -232,12 +233,14 @@ public class GameManager : MonoBehaviour
     
     public void GameOver()
     {
+        _battleStarted = false;
         Debug.Log("The game is over.");
         _uiManager.OpenEndScreenPanel("Game Over, The Great CarRoot was Killed");
         Time.timeScale = 0;
     }
     public void EndGame()
     {
+        _battleStarted = false;
         Debug.Log("The game is over.");
         _uiManager.OpenEndScreenPanel("Victory, Long Live The Great CarRoot");
     }   
