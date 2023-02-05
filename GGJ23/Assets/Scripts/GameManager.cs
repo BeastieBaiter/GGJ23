@@ -62,6 +62,8 @@ public class GameManager : MonoBehaviour
         _uiManager = UIManager.Instance;
         _timeManager = TimeManager.Instance;
         _combatManager = CombatManager.Instance;
+        monsterArmy = new List<Monster>();
+        enemyArmy = new List<Monster>();
     }
 
     public void Update()
