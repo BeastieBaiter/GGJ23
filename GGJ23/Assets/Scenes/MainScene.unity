@@ -1460,6 +1460,50 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5221364258487398077, guid: cb6c99e213ff5b24d865c1f1e4082332, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 125b75057e59d62458c3b273e6dc882c, type: 2}
+    - target: {fileID: 5221364258487398077, guid: cb6c99e213ff5b24d865c1f1e4082332, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -5968569349795195627, guid: 125b75057e59d62458c3b273e6dc882c, type: 2}
+    - target: {fileID: 5221364259815524045, guid: cb6c99e213ff5b24d865c1f1e4082332, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5790211238515568551, guid: cb6c99e213ff5b24d865c1f1e4082332, type: 3}
+      propertyPath: m_text
+      value: QUIT
+      objectReference: {fileID: 0}
+    - target: {fileID: 5790211238515568551, guid: cb6c99e213ff5b24d865c1f1e4082332, type: 3}
+      propertyPath: m_fontSize
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 5790211238515568551, guid: cb6c99e213ff5b24d865c1f1e4082332, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 5790211238515568551, guid: cb6c99e213ff5b24d865c1f1e4082332, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5790211239201103726, guid: cb6c99e213ff5b24d865c1f1e4082332, type: 3}
+      propertyPath: m_text
+      value: RESTART
+      objectReference: {fileID: 0}
+    - target: {fileID: 5790211239201103726, guid: cb6c99e213ff5b24d865c1f1e4082332, type: 3}
+      propertyPath: m_fontSize
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 5790211239201103726, guid: cb6c99e213ff5b24d865c1f1e4082332, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 5790211239201103726, guid: cb6c99e213ff5b24d865c1f1e4082332, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5790211239800516748, guid: cb6c99e213ff5b24d865c1f1e4082332, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

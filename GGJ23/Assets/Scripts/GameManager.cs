@@ -281,7 +281,7 @@ public class GameManager : MonoBehaviour
         battleStarted = false;
         Debug.Log("The game is over.");
         _audioManager.Play("Fail");
-        _uiManager.OpenEndScreenPanel("Game Over, The Great CarRoot was Killed");
+        _uiManager.OpenEndScreenPanel("GAME OVER\n" + " THE GREAT CARROOT WAS KILLED");
         Time.timeScale = 0;
     }
     public void EndGame()
@@ -290,7 +290,7 @@ public class GameManager : MonoBehaviour
         battleStarted = false;
         Debug.Log("The game is over.");
         _audioManager.Play("Win");
-        _uiManager.OpenEndScreenPanel("Victory, Long Live The Great CarRoot");
+        _uiManager.OpenEndScreenPanel("VICTORY\n" + " LONG LIVE THE GREAT CARROOT");
         Time.timeScale = 0;
     }   
 }
