@@ -34,6 +34,7 @@ public class CombatManager : MonoBehaviour
     public TMP_Text enemyCounter;
     public TMP_Text monsterCounter;
     public Image timer;
+    public TMP_Text battleEndMessage;
 
     public int armyWidth;
     public int armyHeight;
@@ -48,6 +49,8 @@ public class CombatManager : MonoBehaviour
     public float minMultiplier;
     public float maxMultiplier;
     public float damageBuff;
+
+    private int _beginningTreeHealth;
     
     private List<Monster> _monsterArmy;
     private List<Monster> _enemyArmy;
@@ -67,6 +70,7 @@ public class CombatManager : MonoBehaviour
 
     public void StartBattle()
     {
+        _beginningTreeHealth = GameManager.Instance.currTreeHealth;
         combatUI.SetActive(true);
         _monsterArmy = GameManager.Instance.monsterArmy;
         _enemyArmy = WaveManager.Instance.GetNextWave(GameManager.Instance.waveCounter);
@@ -112,7 +116,12 @@ public class CombatManager : MonoBehaviour
             {
                 Destroy(monsterArmyPos.GetChild(i).gameObject);
             }
+            battleEndMessage.gameObject.SetActive(true);
             combatUI.SetActive(false);
+            int healthDiff = _beginningTreeHealth - GameManager.Instance.currTreeHealth;
+            battleEndMessage.text = "Your army has " + _monsterArmy.Count + " carrots and the tree took " + healthDiff + " damage";
+            yield return new WaitForSeconds(timeBetweenAttacks);
+            battleEndMessage.gameObject.SetActive(false);
             GameManager.Instance.BattleOver(_monsterArmy);
         } 
     }
@@ -204,18 +213,19 @@ public class CombatManager : MonoBehaviour
             }
         }
 
-        /*if (toDestroy.Count > 0)
+        if (toDestroy.Count > 0)
         {
             foreach (Monster m in toDestroy)
             {
                 if (m.gameObject.activeSelf)
                 {                
-                    toDestroy.Remove(m);
-                    Destroy(m.gameObject);
+                    //toDestroy.Remove(m);
+                    //Destroy(m.gameObject);
+                    m.gameObject.SetActive(false);
                 }
 
             }
-        }*/
+        }
 
         if (army == _monsterArmy)
         {
