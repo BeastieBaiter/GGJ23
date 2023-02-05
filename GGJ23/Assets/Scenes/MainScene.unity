@@ -714,7 +714,7 @@ MonoBehaviour:
   battleEndMessage: {fileID: 1813431113}
   armyWidth: 10
   armyHeight: 5
-  armyGap: 50
+  armyGap: 65
   enemyArmyPos: {fileID: 1724562590}
   monsterArmyPos: {fileID: 304806226}
   timeBetweenAttacks: 15
@@ -777,7 +777,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3fc74b3f9cd73f4295212aaeeb29e3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 20
+  duration: 5
 --- !u!1 &1622384377
 GameObject:
   m_ObjectHideFlags: 0
@@ -1375,6 +1375,18 @@ PrefabInstance:
     - target: {fileID: 5041124297235258948, guid: f3193dd4b19c89041bacce11f1fc71aa, type: 3}
       propertyPath: m_Name
       value: Main Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 5041124297235258950, guid: f3193dd4b19c89041bacce11f1fc71aa, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5041124297235258950, guid: f3193dd4b19c89041bacce11f1fc71aa, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0.20303369
+      objectReference: {fileID: 0}
+    - target: {fileID: 5041124297235258950, guid: f3193dd4b19c89041bacce11f1fc71aa, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0.5283019
       objectReference: {fileID: 0}
     - target: {fileID: 5041124297235258951, guid: f3193dd4b19c89041bacce11f1fc71aa, type: 3}
       propertyPath: m_RootOrder
