@@ -715,6 +715,7 @@ MonoBehaviour:
   timeBetweenSpawns: 0.2
   minMultiplier: 0.75
   maxMultiplier: 1.25
+  damageBuff: 0
 --- !u!114 &1606566974 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1606566974, guid: cb6c99e213ff5b24d865c1f1e4082332, type: 3}
@@ -948,7 +949,7 @@ MonoBehaviour:
   - {fileID: 8203106590882110918, guid: b5eb2adfca5bfd845ab0444647018bed, type: 3}
   gridStartPos: {x: -8.5, y: -5.5}
   gridWidth: 18
-  gridHeight: 36
+  gridHeight: 40
   dirt: {fileID: 3008313780465116212, guid: f7b3f292c211cd34db37642be07dc48a, type: 3}
   bedrock: {fileID: 8016448897187718562, guid: 0704c0e03e67315488111abca331f74d, type: 3}
   dirts: []
