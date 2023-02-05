@@ -6,8 +6,8 @@ public class MusicSetter : MonoBehaviour
 {
     void Start()
     {
-        AudioManager.instance.Play("Ambient");
-        AudioManager.instance.Play("Music");
+        AudioManager.Instance.Play("Ambient");
+        AudioManager.Instance.Play("Music");
         
     }
 }
