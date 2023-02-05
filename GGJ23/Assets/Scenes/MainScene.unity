@@ -716,7 +716,7 @@ MonoBehaviour:
   timeBetweenSpawns: 0.2
   minMultiplier: 0.75
   maxMultiplier: 1.25
-  damageBuff: 0
+  damageBuff: 1.5
 --- !u!114 &1606566974 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1606566974, guid: cb6c99e213ff5b24d865c1f1e4082332, type: 3}
