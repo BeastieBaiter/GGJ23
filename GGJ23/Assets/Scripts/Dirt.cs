@@ -11,11 +11,11 @@ public class Dirt : MonoBehaviour
     public Sprite[] spritesWaterLevel = new Sprite[4];
     public bool canBeBroken=false;
     CircleCollider2D circleCollider2D;
+    SpriteRenderer spriteRenderer;
 
     void Start()
     {
-        //this.spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-        //spriteRenderer.sprite = spritesWaterLevel[0];
+        this.spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         circleCollider2D = gameObject.GetComponent<CircleCollider2D>();
         waterLevel = 0;
 
@@ -43,7 +43,7 @@ public class Dirt : MonoBehaviour
             waterLevel = waterLevelIncrease;
             //log unity
             Debug.Log("Water level increased to " + waterLevel);
-            //spriteRenderer.sprite = spritesWaterLevel[waterLevel];
+            spriteRenderer.sprite = spritesWaterLevel[waterLevel];
         }
     }
 
