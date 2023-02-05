@@ -10,9 +10,10 @@ public class Bedrock : MonoBehaviour
     
     void Start()
     {
+        gameManager = GameManager.Instance;
         circleCollider2D = gameObject.GetComponent<CircleCollider2D>();
     }
-    private void OnTriggerExit2D(Collider2D other) {
+    private void OnTriggerStay2D(Collider2D other) {
         if (other.gameObject.CompareTag("Broken") && gameManager.counter == 3)
         {
             this.gameObject.GetComponent<Bedrock>().canBeBroken = true;

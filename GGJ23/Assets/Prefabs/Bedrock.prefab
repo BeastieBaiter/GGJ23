@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6096572052573465518}
   m_Layer: 0
   m_Name: Bedrock
-  m_TagString: Untagged
+  m_TagString: Bedrock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -142,7 +142,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.75
 --- !u!50 &6096572052573465518
 Rigidbody2D:
   serializedVersion: 4

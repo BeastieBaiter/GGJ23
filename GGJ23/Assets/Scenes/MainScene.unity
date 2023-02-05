@@ -472,8 +472,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerText: {fileID: 823583996}
   healthBar: {fileID: 296455219}
-  endScreenPanel: {fileID: 0}
-  endText: {fileID: 0}
+  endScreenPanel: {fileID: 5221364259869064433}
+  endText: {fileID: 5221364259869064432}
 --- !u!1 &1323874377
 GameObject:
   m_ObjectHideFlags: 0
@@ -1339,3 +1339,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb6c99e213ff5b24d865c1f1e4082332, type: 3}
+--- !u!114 &5221364259869064432 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5221364258487398077, guid: cb6c99e213ff5b24d865c1f1e4082332, type: 3}
+  m_PrefabInstance: {fileID: 5221364259869064431}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &5221364259869064433 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5221364259815524045, guid: cb6c99e213ff5b24d865c1f1e4082332, type: 3}
+  m_PrefabInstance: {fileID: 5221364259869064431}
+  m_PrefabAsset: {fileID: 0}

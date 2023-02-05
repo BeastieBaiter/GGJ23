@@ -84,7 +84,7 @@ public class GameManager : MonoBehaviour
         if(Input.GetButtonDown("Fire1")){
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
             if(hit.collider!= null && hit.collider.gameObject.tag == "Upgrade"){
-                counter+=1;
+                counter++;
                 Debug.Log(hit.collider.gameObject.name +"clicked");
                 hit.collider.gameObject.GetComponent<CircleCollider2D>().isTrigger = false;
                 hit.collider.gameObject.tag = "Broken";
@@ -147,11 +147,15 @@ public class GameManager : MonoBehaviour
         {
             for (var y = gridStartPos.y; y > -1 * (Math.Abs(gridStartPos.y) + gridHeight); y--)
             {
-                double pos = VerifyUpgradePos(upgradeSpawnPos, x, y);
-                if(pos == -1)
-                    SpawnDirt(x, y);
+                //double pos = VerifyUpgradePos(upgradeSpawnPos, x, y);
+                if(x == -4.5 && y == -9.5)
+                    SpawnUpgrade(x, y, 0);
+                else if(x == 0.5 && y == -11.5) 
+                    SpawnUpgrade(x, y, 1);
+                else if(x == 4.5 && y == -15.5)
+                    SpawnUpgrade(x, y, 2);
                 else 
-                    SpawnUpgrade(x, y, int.Parse(pos.ToString()));
+                    SpawnDirt(x, y);
             }
         }
         for (float x = gridStartPos.x; x < gridWidth + gridStartPos.x; x++){
@@ -244,5 +248,6 @@ public class GameManager : MonoBehaviour
         battleStarted = false;
         Debug.Log("The game is over.");
         _uiManager.OpenEndScreenPanel("Victory, Long Live The Great CarRoot");
+        Time.timeScale = 0;
     }   
 }
