@@ -55,6 +55,9 @@ public class GameManager : MonoBehaviour
     public bool dmgBuff { get; private set; }
     public bool dmgResistance { get; private set; }
 
+    [SerializeField] private int healthBuff;
+    [SerializeField] private float dmgResistanceValue;
+
     private void Start()
     {
         GridBuilder();
@@ -138,6 +141,7 @@ public class GameManager : MonoBehaviour
         switch (upgrade)
         {
             case 1:
+                maxTreeHealth += healthBuff;
                 _uiManager.ResetHealthBar();
                 break;
             case 2:
@@ -238,6 +242,15 @@ public class GameManager : MonoBehaviour
 
     public void HurtTree(int damage)
     {
+        float dmg = damage;
+        
+        if (dmgResistance)
+        {
+            dmg *= dmgResistanceValue;
+        }
+        
+        currTreeHealth -= (int) dmg;
+        
         Debug.Log("The tree took " + damage + " damage");
     }
 
