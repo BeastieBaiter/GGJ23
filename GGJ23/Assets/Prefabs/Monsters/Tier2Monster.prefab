@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3152739915044846286}
   - component: {fileID: 1379533857621174925}
   - component: {fileID: 3318831758800282595}
-  - component: {fileID: 3659479055941246298}
+  - component: {fileID: 4284545972067491868}
   m_Layer: 0
   m_Name: Tier2Monster
   m_TagString: Untagged
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 438129340133841324}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -103,7 +103,7 @@ MonoBehaviour:
   damage: 10
   spritePrefab: {fileID: 438129340133841324, guid: 44490f2d1eeda0f4a86592ad27a47a33, type: 3}
   teleportPrefab: {fileID: 0}
---- !u!95 &3659479055941246298
+--- !u!95 &4284545972067491868
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
