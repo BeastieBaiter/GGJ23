@@ -164,6 +164,10 @@ public class CombatManager : MonoBehaviour
     
     private IEnumerator DrawSprites(bool firstDraw, List<Monster> army, Transform anchor)
     {
+        if (army.Count == 0)
+        {
+            yield return null;
+        }
         List<Monster> reverseArmy = army;
         reverseArmy.Reverse();
         for (int i = 0; i < armyHeight * armyWidth && (i < reverseArmy.Count); i++)
