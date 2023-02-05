@@ -107,6 +107,11 @@ public class CombatManager : MonoBehaviour
         }
         else
         {
+            if (_monsterArmy.Count == 0 && _enemyArmy.Count > 0)
+            {
+                GameManager.Instance.HurtTree(GetArmyStrength(_enemyArmy));
+            }
+            
             for (int i = enemyArmyPos.childCount - 1; i >= 0; i--)
             {
                 Destroy(enemyArmyPos.GetChild(i).gameObject);
