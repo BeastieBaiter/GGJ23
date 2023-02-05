@@ -948,14 +948,14 @@ MonoBehaviour:
   - {fileID: 8203106590882110918, guid: b5eb2adfca5bfd845ab0444647018bed, type: 3}
   gridStartPos: {x: -8.5, y: -5.5}
   gridWidth: 18
-  gridHeight: 18
+  gridHeight: 36
   dirt: {fileID: 3008313780465116212, guid: f7b3f292c211cd34db37642be07dc48a, type: 3}
   bedrock: {fileID: 8016448897187718562, guid: 0704c0e03e67315488111abca331f74d, type: 3}
   dirts: []
   upgrades:
-  - {fileID: 4999965300991081022, guid: b4dddebb19147a1458b508b776f60e8a, type: 3}
-  - {fileID: 4999965300991081022, guid: b4dddebb19147a1458b508b776f60e8a, type: 3}
-  - {fileID: 4999965300991081022, guid: b4dddebb19147a1458b508b776f60e8a, type: 3}
+  - {fileID: 4056259253961998426, guid: 44b6be0e9c8c1ac44988876971914c0d, type: 3}
+  - {fileID: 4557172875428533280, guid: c5d98935a3f087f4ab81669d134c19ee, type: 3}
+  - {fileID: 5309270914253029652, guid: adb7f3604e0b35b4bbd101fe11001e81, type: 3}
 --- !u!224 &1724562590 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1724562590, guid: cb6c99e213ff5b24d865c1f1e4082332, type: 3}

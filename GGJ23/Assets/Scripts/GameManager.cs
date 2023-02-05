@@ -52,7 +52,9 @@ public class GameManager : MonoBehaviour
     Vector2[] upgradeSpawnPos = new Vector2[3];
 
     public bool battleStarted { get; private set;}
-    
+    public bool dmgBuff { get; private set; }
+    public bool dmgResistance { get; private set; }
+
     private void Start()
     {
         GridBuilder();
@@ -64,6 +66,7 @@ public class GameManager : MonoBehaviour
         _combatManager = CombatManager.Instance;
         monsterArmy = new List<Monster>();
         battleStarted = false;
+        dmgBuff = false;
     }
 
     public void Update()
@@ -89,6 +92,7 @@ public class GameManager : MonoBehaviour
                 hit.collider.gameObject.GetComponent<CircleCollider2D>().isTrigger = false;
                 hit.collider.gameObject.tag = "Broken";
                 hit.collider.gameObject.SetActive(false);
+                GiveBuff(gameObject.GetComponent<Upgrade>().index);
             }
 
             if (hit.collider != null && hit.collider.gameObject.tag == "Bedrock" && hit.collider.gameObject.GetComponent<Bedrock>().canBeBroken)
@@ -128,6 +132,23 @@ public class GameManager : MonoBehaviour
             BattleStart();
         }
     }
+
+    private void GiveBuff(int upgrade)
+    {
+        switch (upgrade)
+        {
+            case 1:
+                _uiManager.ResetHealthBar();
+                break;
+            case 2:
+                dmgBuff = true;
+                break;
+            case 3:
+                dmgResistance = true;
+                break;
+        }
+    }
+    
     /*Grid Builder*/
     void GridBuilder(){
         Start_Grid();
@@ -150,9 +171,9 @@ public class GameManager : MonoBehaviour
                 //double pos = VerifyUpgradePos(upgradeSpawnPos, x, y);
                 if(x == -4.5 && y == -9.5)
                     SpawnUpgrade(x, y, 0);
-                else if(x == 0.5 && y == -11.5) 
+                else if(x == 0.5 && y == -20.5) 
                     SpawnUpgrade(x, y, 1);
-                else if(x == 4.5 && y == -15.5)
+                else if(x == 4.5 && y == -30.5)
                     SpawnUpgrade(x, y, 2);
                 else 
                     SpawnDirt(x, y);

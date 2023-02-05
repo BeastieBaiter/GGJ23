@@ -7,6 +7,8 @@ public class Upgrade : MonoBehaviour
     public bool canBeBroken=false;
     CircleCollider2D circleCollider2D;
     
+    public int index;
+    
     void Start()
     {
         circleCollider2D = gameObject.GetComponent<CircleCollider2D>();

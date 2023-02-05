@@ -43,6 +43,11 @@ public class UIManager : MonoBehaviour
         healthBar.SetText();
     }
 
+    public void ResetHealthBar()
+    {
+        healthBar.SetEverything(_gameManager.maxTreeHealth);
+    }
+
     public void UpdateTimerText(string text)
     {
         timerText.text = text;
