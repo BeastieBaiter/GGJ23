@@ -90,6 +90,7 @@ public class GameManager : MonoBehaviour
         if(Input.GetButtonDown("Fire1")){
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
             if(hit.collider!= null && hit.collider.gameObject.tag == "Upgrade"){
+                _audioManager.Play("Dig");
                 counter++;
                 Debug.Log(hit.collider.gameObject.name +"clicked");
                 hit.collider.gameObject.GetComponent<CircleCollider2D>().isTrigger = false;
@@ -107,6 +108,7 @@ public class GameManager : MonoBehaviour
             {
                 //remove Dirt if clicked
                 //log unity
+                _audioManager.Play("Dig");
                 Debug.Log(hit.collider.gameObject.name +"clicked");
                 hit.collider.gameObject.GetComponent<CircleCollider2D>().isTrigger = false;
                 
@@ -250,12 +252,15 @@ public class GameManager : MonoBehaviour
         }
         
         currTreeHealth -= (int) dmg;
+        _audioManager.Play("Damage");
         
         Debug.Log("The tree took " + damage + " damage");
     }
 
     public void BattleStart()
     {
+        _audioManager.Play("RunningOutOfTime");
+        
         _timeManager.StopTime();
         //MOVER A CAMARA
         //dar disable das setas
@@ -266,6 +271,7 @@ public class GameManager : MonoBehaviour
     {
         battleStarted = false;
         _timeManager.ResetTimer();
+        _audioManager.Play("TimerStart");
         MakeItRain();
         //pan da camara para baixo
         //reenable das setas
@@ -275,13 +281,16 @@ public class GameManager : MonoBehaviour
     {
         battleStarted = false;
         Debug.Log("The game is over.");
+        _audioManager.Play("Fail");
         _uiManager.OpenEndScreenPanel("Game Over, The Great CarRoot was Killed");
         Time.timeScale = 0;
     }
     public void EndGame()
     {
+
         battleStarted = false;
         Debug.Log("The game is over.");
+        _audioManager.Play("Win");
         _uiManager.OpenEndScreenPanel("Victory, Long Live The Great CarRoot");
         Time.timeScale = 0;
     }   

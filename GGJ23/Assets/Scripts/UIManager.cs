@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour
 {
     public static UIManager Instance { get; private set; }
+
     private void Awake()
     {
         // If there is an instance, and it's not me, delete myself.
@@ -55,6 +56,7 @@ public class UIManager : MonoBehaviour
 
     public void SceneLoader(string name)
     {
+        _audioManager.Play("ButtonSound");
         SceneManager.LoadScene(name);
     }
 

@@ -8,7 +8,7 @@ using Random = UnityEngine.Random;
 
 public class CombatManager : MonoBehaviour
 {
-
+    private AudioManager _audioManager;
     public static CombatManager Instance { get; private set; }
     private void Awake()
     {
@@ -21,7 +21,9 @@ public class CombatManager : MonoBehaviour
             DontDestroyOnLoad(this);
         }
     }
-
+    private void Start() {
+        _audioManager = AudioManager.Instance;
+    }
     public GameObject combatUI;
     
     public TMP_Text VStext;
@@ -155,6 +157,7 @@ public class CombatManager : MonoBehaviour
             Instantiate(reverseArmy[i].spritePrefab,
                 anchor.position + new Vector3(armyGap * (i % 10), armyGap * (i / 10), 0),
                 Quaternion.identity, enemyArmyPos);
+            _audioManager.Play("AddSoldier");
             if (firstDraw)
             {
                 yield return new WaitForSeconds(timeBetweenSpawns);
