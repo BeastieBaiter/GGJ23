@@ -221,6 +221,7 @@ public class GameManager : MonoBehaviour
     
     /*End of Grid Builder*/
     void MakeItRain(){
+        _audioManager.Play("Rain");
         foreach (var dirt in dirts)
         {
             StartCoroutine(Rain());

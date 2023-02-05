@@ -1,0 +1,107 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &375035379234278849
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5693770963965269475}
+  - component: {fileID: 9052987065522927925}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5693770963965269475
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 375035379234278849}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.3461714, y: -1.8101933, z: -0.06493087}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9052987065522927925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 375035379234278849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db106edbb92b5c54ab57665f8052d7d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: ButtonSound
+    clip: {fileID: 8300000, guid: 99abc0dc8c2ee90449fbf0f9a5494aec, type: 3}
+    volume: 0.2
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: AddSoldier
+    clip: {fileID: 8300000, guid: 0b44211f158773f41a44304a4576d1dd, type: 3}
+    volume: 0.2
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Damage
+    clip: {fileID: 8300000, guid: 8b398ea489746fb409373e8361b5e842, type: 3}
+    volume: 0.2
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Dig
+    clip: {fileID: 8300000, guid: 984cc06966d877540960575a12abca51, type: 3}
+    volume: 0.2
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Fail
+    clip: {fileID: 8300000, guid: da5c2d448d84ee64198bf251dc31b7b0, type: 3}
+    volume: 0.2
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Rain
+    clip: {fileID: 8300000, guid: e2ff9f6c860291740b03a56ced58639e, type: 3}
+    volume: 0.2
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: RunningOutOfTime
+    clip: {fileID: 8300000, guid: 4d49adbacfc6ed74783d139857a44802, type: 3}
+    volume: 0.2
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: MainSoundTrack
+    clip: {fileID: 8300000, guid: 29c538597b60a864da68c5eba6e7f440, type: 3}
+    volume: 0.2
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: TimerStart
+    clip: {fileID: 8300000, guid: d2c00e5223c56084e98ab688b0b5e859, type: 3}
+    volume: 0.2
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Win
+    clip: {fileID: 8300000, guid: 862ea189b20d5ef4594b8f812209b997, type: 3}
+    volume: 0.2
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
