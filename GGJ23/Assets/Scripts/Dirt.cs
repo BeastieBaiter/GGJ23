@@ -35,9 +35,10 @@ public class Dirt : MonoBehaviour
 
     public void UpdateWaterLevel()
     {
+        if (!gameObject.CompareTag("Dirt")) return;
         // percentage of possibility of water level increase
         int percentage = Random.Range(0, 100);
-        if (percentage <= 20)
+        if (percentage <= 10)
         {
             int waterLevelIncrease = Random.Range(waterLevel, 3);
             waterLevel = waterLevelIncrease;
