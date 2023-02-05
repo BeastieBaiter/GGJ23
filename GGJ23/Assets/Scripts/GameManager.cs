@@ -163,7 +163,7 @@ public class GameManager : MonoBehaviour
     void SpawnDirt(float x,float y){
         var dirtClone=Instantiate(dirt, new Vector2(x,y), Quaternion.identity);
 
-        if(x==0.5 && y==-4.5){
+        if(x==0.5 && y==-5.5){
             dirtClone.GetComponent<Dirt>().canBeBroken=true;
         }
         dirtClone.name = "Dirt" + x + y;
