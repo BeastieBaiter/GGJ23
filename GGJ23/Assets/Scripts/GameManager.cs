@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
     // Array of Vector2 to spawn upgrades
     Vector2[] upgradeSpawnPos = new Vector2[3];
 
-    private bool _battleStarted = false;
+    public bool battleStarted { get; private set;}
     
     private void Start()
     {
@@ -63,6 +63,7 @@ public class GameManager : MonoBehaviour
         _timeManager = TimeManager.Instance;
         _combatManager = CombatManager.Instance;
         monsterArmy = new List<Monster>();
+        battleStarted = false;
     }
 
     public void Update()
@@ -121,9 +122,9 @@ public class GameManager : MonoBehaviour
             MakeItRain();
         }
 
-        if (!_timeManager.TimerRunning && !_battleStarted)
+        if (!_timeManager.TimerRunning && !battleStarted)
         {
-            _battleStarted = true;
+            battleStarted = true;
             BattleStart();
         }
     }
@@ -224,7 +225,7 @@ public class GameManager : MonoBehaviour
     
     public void BattleOver(List<Monster> newMonsterArmy)
     {
-        _battleStarted = false;
+        battleStarted = false;
         _timeManager.ResetTimer();
         MakeItRain();
         //pan da camara para baixo
@@ -233,12 +234,12 @@ public class GameManager : MonoBehaviour
     
     public void GameOver()
     {
-        _battleStarted = false;
+        battleStarted = false;
         Debug.Log("The game is over.");
     }
     public void EndGame()
     {
-        _battleStarted = false;
+        battleStarted = false;
         Debug.Log("The game is over.");
     }   
 }
