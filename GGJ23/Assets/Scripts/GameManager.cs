@@ -128,7 +128,7 @@ public class GameManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            HurtTree(10);
+            //test
         }
 
         if (!_timeManager.TimerRunning && !battleStarted)
