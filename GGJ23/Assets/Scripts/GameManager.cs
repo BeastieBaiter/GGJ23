@@ -128,7 +128,7 @@ public class GameManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            MakeItRain();
+            //test
         }
 
         if (!_timeManager.TimerRunning && !battleStarted)
@@ -253,7 +253,7 @@ public class GameManager : MonoBehaviour
         
         currTreeHealth -= (int) dmg;
         _audioManager.Play("Damage");
-        
+        _uiManager.UpdateHealthBar();
         Debug.Log("The tree took " + damage + " damage");
     }
 
